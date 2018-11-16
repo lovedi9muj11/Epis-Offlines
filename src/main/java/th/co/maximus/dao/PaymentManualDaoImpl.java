@@ -258,37 +258,6 @@ public class PaymentManualDaoImpl implements PaymentManualDao {
 
 		return beanReReq;
 	}
-	@Override
-	public ReceiptOfflineModel findByManualId(long manualId, String status) throws SQLException {
-
-		ReceiptOfflineModel beanReReq = new ReceiptOfflineModel();
-
-		StringBuilder sqlStmt = new StringBuilder();
-		sqlStmt.append(
-				"SELECT py.INVOICE_NO , py.RECEIPT_NO_MANUAL ,py.PAID_DATE,py.BRANCH_AREA ,py.BRANCH_CODE,py.PAID_AMOUNT,py.SOURCE,py.REMARK,py.ACCOUNT_NO,py.MANUAL_ID,py.AMOUNT ");
-		sqlStmt.append(" FROM RECEIPT_MANUAL py ");
-		sqlStmt.append(" WHERE  py.MANUAL_ID = ? AND py.CLEARING = 'N' AND py.RECORD_STATUS = ? ");
-		beanReReq = jdbcTemplate.query(sqlStmt.toString(), new PreparedStatementSetter() {
-			public void setValues(PreparedStatement preparedStatement) throws SQLException {
-				preparedStatement.setLong(1, manualId);
-				preparedStatement.setString(2, status);
-				
-			}
-		}, new ResultSetExtractor<ReceiptOfflineModel>() {
-			public ReceiptOfflineModel extractData(ResultSet resultSet) throws SQLException, DataAccessException {
-				if (resultSet.next()) {
-					return new ReceiptOfflineModel(resultSet.getString(1), resultSet.getString(2), resultSet.getDate(3),
-							resultSet.getString(4), resultSet.getString(5), resultSet.getBigDecimal(6),
-							resultSet.getString(7), resultSet.getString(8), resultSet.getString(9),
-							resultSet.getString(10),resultSet.getBigDecimal(11));
-				}
-
-				return null;
-			}
-		});
-
-		return beanReReq;
-	}
 
 	@Override
 	public void udpateStatus(long manualId ,String status) throws SQLException {

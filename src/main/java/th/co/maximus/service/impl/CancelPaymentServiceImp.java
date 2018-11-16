@@ -353,41 +353,6 @@ public class CancelPaymentServiceImp implements CancelPaymentService {
 		return result;
 	}
 	
-	@Override
-	public List<PaymentMMapPaymentInvBean> findAllCancelPaymentsActive(String clearing) throws Exception {
-		List<PaymentMMapPaymentInvBean> result = paymentInvoiceManualDao.findPaymentMuMapPaymentStatusActive(clearing);
-		for (PaymentMMapPaymentInvBean resultBean : result) {
-			List<TrsMethodEpisOffline> methodResult = trsMethodManualDao
-					.findByManualId(Long.valueOf(resultBean.getManualId()));
-			StringBuffer paymentMethod = new StringBuffer();
-			for (TrsMethodEpisOffline method : methodResult) {
-				if (paymentMethod.toString().equals("")) {
-					paymentMethod.append(method.getName());
-				} else {
-					paymentMethod.append("+" + method.getName());
-				}
-				
-			}
-			resultBean.setPaidDateStr(dt.format(resultBean.getCreateDate()));
-			if (null != resultBean.getPeriod()) {
-				resultBean.setPeriod(Utils.periodFormat((resultBean.getPeriod())));
-			}
-			resultBean.setCreateDateStr(dt.format(resultBean.getCreateDate()));
-			resultBean.setPaymentMethod(paymentMethod.toString());
-			resultBean.setBrancharea(masterDatasDao.findByKey(resultBean.getBrancharea()).getValue());
-		}
-		
-		
-		
-//		Collections.sort(result, new Comparator<PaymentMMapPaymentInvBean>() {
-//			@Override
-//			public int compare(PaymentMMapPaymentInvBean o1, PaymentMMapPaymentInvBean o2) {
-//				return o2.getCreateDate().compareTo(o1.getCreateDate());
-//			}
-//		});
-		return result;
-	}
-	
 	public void setCustomerGroupName(PaymentMMapPaymentInvBean resultBean) {
 		
 		if(Constants.CUSTOMER_GROUP.CUSTOMER_1.equals(resultBean.getCustomerGroup())) {

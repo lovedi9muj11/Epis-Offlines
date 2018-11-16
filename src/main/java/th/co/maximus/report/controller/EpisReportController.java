@@ -698,19 +698,19 @@ public class EpisReportController {
 		table.setWidthPercentage(100f);
 		table.setWidths(new float[] { 2f, 6f, 6f, 8f, 5f, 5f, 5f, 5f, 5f, 5f });
 	
-		PdfPCell cell1 = new PdfPCell(new Phrase("ลำดับ",font));
+		PdfPCell cell1 = new PdfPCell(new Phrase("ลำดับL",font));
 		cell1.setBorder(PdfPCell.NO_BORDER);
 		cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		cell1.setFixedHeight(40f);
 		cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.addCell(cell1);
-		cell1 = new PdfPCell(new Phrase("วันเดือนปี",font));
+		cell1 = new PdfPCell(new Phrase("วันเดือนปีL",font));
 		cell1.setBorder(PdfPCell.NO_BORDER);
 		cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		cell1.setFixedHeight(40f);
 		cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.addCell(cell1);
-		cell1 = new PdfPCell(new Phrase("เลขที่ใบกำกับภาษี",font));
+		cell1 = new PdfPCell(new Phrase("เลขที่ใบกำกับภาษีL",font));
 		cell1.setBorder(PdfPCell.NO_BORDER);
 		cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
 		cell1.setFixedHeight(40f);

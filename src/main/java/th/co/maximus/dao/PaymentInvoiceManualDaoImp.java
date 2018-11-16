@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -116,7 +115,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 	}
 
 	@Override
-	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentInVAccountIdNoClearing(String accountNo,String payType) {
+	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentInVAccountId(String accountNo,String payType) {
 		StringBuilder sql = new StringBuilder();
 		List<Object> param = new LinkedList<Object>();
 		sql.append(" SELECT * FROM RECEIPT_MANUAL payment_m ");
@@ -127,7 +126,6 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 			param.add("%" + accountNo + "%");
 		}
 		sql.append(" AND paument_inv.SERVICE_TYPE = ?");
-		sql.append(" AND payment_m.CLEARING = '"+Constants.CLEARING.STATUS_N+"'");
 		param.add(payType);
 		sql.append(" GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC");
 		Object[] paramArr = param.toArray();
@@ -149,7 +147,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 
 	@Override
 	public List<PaymentMMapPaymentInvBean> findCriteriaFromInvoiceOrReceiptNo(String receiptNo, String code, boolean chkCancel) {
-		SimpleDateFormat dateFM = new SimpleDateFormat(Constants.DateTime.DB_DATE_FORMAT,Locale.ENGLISH); 
+		SimpleDateFormat dateFM = new SimpleDateFormat(Constants.DateTime.DB_DATE_FORMAT); 
 		StringBuilder sql = new StringBuilder();
 		List<Object> param = new LinkedList<Object>();
 		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -504,20 +502,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 		List<Object> param = new LinkedList<Object>();
 		sql.append(" SELECT * FROM RECEIPT_MANUAL payment_m ");
 		sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL paument_inv ON payment_m.MANUAL_ID = paument_inv.MANUAL_ID");
-		sql.append(" WHERE payment_m.CLEARING = ? AND payment_m.RECORD_STATUS = 'C' ");
-		param.add(clearing);
-		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC");
-		Object[] paramArr = param.toArray();
-		return jdbcTemplate.query(sql.toString(), paramArr, PaymentManual);
-	}
-	
-	@Override
-	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentStatusActive(String clearing) {
-		StringBuilder sql = new StringBuilder();
-		List<Object> param = new LinkedList<Object>();
-		sql.append(" SELECT * FROM RECEIPT_MANUAL payment_m ");
-		sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL paument_inv ON payment_m.MANUAL_ID = paument_inv.MANUAL_ID");
-		sql.append(" WHERE payment_m.CLEARING = ? AND payment_m.RECORD_STATUS = '"+Constants.Status.ACTIVE+"' ");
+		sql.append(" WHERE payment_m.CLEARING = ?");
 		param.add(clearing);
 		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC");
 		Object[] paramArr = param.toArray();

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import th.co.maximus.bean.MapGLBean;
 import th.co.maximus.bean.ReportPaymentBean;
 import th.co.maximus.bean.ReportPaymentCriteria;
-import th.co.maximus.constants.Constants;
 import th.co.maximus.dao.MapGLDao;
 import th.co.maximus.service.PaymentReportService;
 
@@ -43,7 +42,7 @@ public class ReportPaymentController {
 	@RequestMapping(value = { "/reportPayment" }, method = RequestMethod.POST, produces = "application/json")
 	@ResponseBody
 	public List<ReportPaymentBean> reportPaymentCriteria(@RequestBody ReportPaymentCriteria creteria) throws Exception {
-		List<ReportPaymentBean> result = paymentReportService.findPaymnetReportService(creteria, Constants.Service.SERVICE_TYPE_IBACSS);
+		List<ReportPaymentBean> result = paymentReportService.findPaymnetReportService(creteria,"IBACSS");
 		return result;
 	}
 	@RequestMapping(value = { "/findGL_AccountMaster" }, method = RequestMethod.POST, produces = "application/json")

@@ -190,6 +190,7 @@ public class PaymentReportServiceImp implements PaymentReportService {
 		for(ReportPaymentBean resultBean : result) {
 			String paymentCodeRes = "";
 			String deductionNo = "";
+			boolean chkCC = true;
 			boolean chkCR = false;
 			boolean chkCH = false;
 
@@ -204,7 +205,7 @@ public class PaymentReportServiceImp implements PaymentReportService {
 				if (stockObject.getCode().equals("CC")) {
 					payCode = "เงินสด";
 					results.add(payCode);
-					if(i==0) {resultBean.setRefNo("");}
+					if(i==0) {resultBean.setRefNo(""); chkCC=true;}
 					if (stockObject.getCode().equals("DEDUC")) {}
 				} else if (stockObject.getCode().equals("CR")) {
 					List<TrsCreditrefEpisOffline> res = trscreDitrefManualService.findByMethodId(stockObject.getId());

@@ -5,18 +5,13 @@ var checkLogin = false;
 var isprice = 0;
 
 $(document).ready(function() {
-	// ============ vat Rate by imaew
-
 	
 	$("#barCode").keypress(function(e){
         if ( e.which == 13 ) {
         	console.log('x1')
             var barcode = chars.join("");
-        	var checkTypeCode = true
-        	
-            if(barcode.charAt(0) == "|") {barcode = barcode.slice(1,barcode.length)}
-            if(barcode.charAt(0) == " ") {barcode = barcode.slice(1,barcode.length)
-            	checkTypeCode = false}
+            if(barcode.charAt(0) == "|") barcode = barcode.slice(1,barcode.length);
+            if(barcode.charAt(0) == " ") barcode = barcode.slice(1,barcode.length);
 // alert(barcode.substring(0, 15));
 // alert(barcode.substring(15, 24));
 // alert(barcode.substring(24, 42));
@@ -25,15 +20,7 @@ $(document).ready(function() {
             $("#barCode").val(barcode);
             chars = [];
             e.preventDefault();
-            
-            var setCode
-            
-            if(checkTypeCode) {
-            	setCode = barcode.split("\n")
-            }else {
-            	setCode = barcode.split(" ")
-            }
-            
+            var setCode = barcode.split("\n");
 // alert(ks[0]);
             $.each(setCode, function(x){
 // alert(setCode[x]);
@@ -45,7 +32,7 @@ $(document).ready(function() {
             		var day = setCode[x].substring(9, 11);
             		var today = year+"-"+(month)+"-"+(day) ;
 
-                	$('#deadlines').val(today);
+//                	$('#deadlines').val(today);
             	}
             	if(x==3) {
             		var amount = ((parseFloat(setCode[x]))/100);
@@ -73,7 +60,6 @@ $(document).ready(function() {
 			hideShowdat();
 			disBtn();
 			autoSelect();
-			vateRate()
 			
 			$("#moneyDed").val("0.00");
 			document.getElementById("taxOnly").readOnly = true;
@@ -84,7 +70,6 @@ $(document).ready(function() {
 			$("#balanceOfTaxPrice").val(parseFloat(0).toFixed(2));
 			$("#balanceSummary").val(parseFloat(0).toFixed(2));
 			$("#balanceOfTaxPrice").on( "keyup",  function() {
-				vateRate()
 				var balanceOfTaxPrice = $("#balanceOfTaxPrice").val();
 				if(balanceOfTaxPrice == ""){
 					balanceOfTaxPrice = parseFloat(0);
@@ -320,23 +305,6 @@ function checkTaxOnly(){
 	}
 }
 
-function vateRate(){
-    $.ajax({
-        type: 'GET',
-        url: ctx +"/getvatRate"
-    }).then(function (data) {
-     for(var i=0; i<data.length; i++) {
-      var element = data[i];
-      if(element.text != 'Non-VAT'){
-       $('#vatrate').append('<option value="' + element.text+ '">' + element.text +' %'+ '</option>');
-      }else{
-       $('#vatrate').append('<option value="' + element.text+ '">' + element.text + '</option>');
-      }
-      
-     }
-    });
-}
-
 function isSelectTaxDiscount(){
 	var result = isprice;
 	if(result == ""){
@@ -529,7 +497,7 @@ function findvatAmount(){
 	if(vatNanVat == "Non-VAT"){
 		vatq = vatRateResult;
 	}else{
-		vatq = parseFloat($("#vatrate").val());
+		vatq = $("#vatrate").val();
 	}
 	
 	var bal = $("#balanceSummary").val();
@@ -540,16 +508,11 @@ function findvatAmount(){
 	var vat = parseFloat(0);
 	var summary = parseFloat(0);
 	var summaryT = parseFloat(0);
-	var vatCo = parseFloat(vatRQ);
+	var vatCo = parseFloat(vatSummary(vatq));
 	var vatRq = parseFloat(0);
 	
 	summaryT = parseFloat(result * parseFloat(vatRQ));
-	if(summaryT == 0 && vatCo == 0){
-		vat = parseFloat(0);
-	}else{
-		vat = summaryT / vatCo;
-	}
-	
+	vat = parseFloat(summaryT / vatCo);
 	
 	
 	beforeVat = parseFloat(result - vat);
@@ -625,7 +588,7 @@ function vatAmount(){
 	var vat = parseFloat(0);
 	var summary = parseFloat(0);
 	var summaryT = parseFloat(0);
-	var vatCo = parseFloat(vaq);
+	var vatCo = parseFloat(vatSummary(vaq));
 	var vatRq = parseFloat(0);
 	
 	summaryT = parseFloat(result * parseFloat(vatRQ));
@@ -1945,16 +1908,14 @@ function checkNonVat() {
 	}
 }
 
-//function vatSummary(vatRate){
-//	if(vatRate){
-//		if("Non-VAT" == vatRate){
-//			return  parseFloat(0);
-//		}else{
-//			return parseFloat(vatRate);
-//		}
-//	}
-//
-//}
+function vatSummary(vatRate){
+	var calVat = "1";
+	if(vatRate.length > 1){
+		return calVat + vatRate;
+	}else{
+		return calVat +"0"+ vatRate
+	}
+}
 
 function inputAmount(){
 	var dataCheck = parseFloat($("#balanceSumShow").val()).toFixed(2).replace(/,/g, "");
@@ -1984,7 +1945,7 @@ function inputAmount(){
 	var vat = parseFloat(0);
 	var summary = parseFloat(0);
 	var summaryT = parseFloat(0);
-	var vatCo = parseFloat(vatq);
+	var vatCo = parseFloat(vatSummary(vatq));
 	var vatRq = parseFloat(0);
 	
 	summaryT = parseFloat(bable * parseFloat(vatRQ));

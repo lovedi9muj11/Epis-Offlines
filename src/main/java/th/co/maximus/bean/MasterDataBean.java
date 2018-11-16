@@ -18,7 +18,6 @@ public class MasterDataBean {
 	private String minute;
 	
 	private String yearNow;
-	private String monthNow;
 	
 	private List<DropDownBean> DropDownBeans;
 	private List<DropDownBean> DropDownMonths; 
@@ -106,12 +105,6 @@ public class MasterDataBean {
 	}
 	public void setYearNow(String yearNow) {
 		this.yearNow = yearNow;
-	}
-	public String getMonthNow() {
-		return monthNow;
-	}
-	public void setMonthNow(String monthNow) {
-		this.monthNow = monthNow;
 	}
 	
 

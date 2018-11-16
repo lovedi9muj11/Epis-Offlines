@@ -104,7 +104,6 @@ public class Constants {
 			public static final String TRIGGER_GL = "Trigger_GL";
 			public static final String TRIGGER_USER = "Trigger_User";
 			public static final String TRIGGER_MINUS = "Trigger_Minus";
-			public static final String TRIGGER_CLEARING = "Trigger_Clearing";
 			public static final String BANK_TYPE_EDC = "BANK_TYPE_EDC";
 		}
 		
@@ -112,11 +111,6 @@ public class Constants {
 	
 	public static class GL_SERVICE {
 		public static final String OTHER = "OTHER";
-	}
-	
-	public static class CLEARING {
-		public static final String STATUS_Y = "Y";
-		public static final String STATUS_N = "N";
 	}
 	
 	public static class USER {
@@ -150,7 +144,6 @@ public class Constants {
 		public static final String JOB_2 = "jobWithSimpleTriggerBeanTrigger2";
 		public static final String JOB_3 = "jobWithSimpleTriggerBeanTrigger3";
 		public static final String JOB_4 = "jobWithSimpleTriggerBeanTrigger4";
-		public static final String JOB_5 = "jobWithSimpleTriggerBeanTrigger5";
 	}
 	
 	public static class PAYMENT_OTHER {

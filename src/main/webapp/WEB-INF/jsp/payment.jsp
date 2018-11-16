@@ -76,7 +76,7 @@
 												<div class="form-group col-md-6">
 													<label class="col-sm-4 control-label right">BarCode:</label>
 													<div class="col-sm-6">
-														<input class="form-control" type="text" id="barCode" name="barCode" maxlength="62">
+														<input class="form-control" type="text" id="barCode" name="barCode">
 <!-- 														<input class="form-control" type="text" id="barCode" name="barCode" onchange="setDataBC()"> -->
 													</div>
 												</div>
@@ -238,6 +238,13 @@
 													<div class="col-sm-2">
 														<select class="form-control" id="vatrate" name="vatrate"
 															onchange="findvatAmount()">
+																<%
+																	for (int i = 0; i < vat.size(); i++) {
+																%>
+																<option value="<%=vat.get(i).getValue()%>"><%=vat.get(i).getValue()%>%</option>
+																<%
+																	}
+																%>
 														</select>
 													</div>
 												</div>

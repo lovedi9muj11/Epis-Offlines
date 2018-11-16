@@ -57,8 +57,8 @@ public class HistoryPaymentServiceImp implements HistoryPaymentService {
 	@Override
 	public List<PaymentMMapPaymentInvBean> serviceHistroryPaymentFromAccountNo(String accountNo,String payType) throws Exception {
 		List<PaymentMMapPaymentInvBean> result = new ArrayList<>();
-		for (PaymentMMapPaymentInvBean bean : paymentInvoiceManualDao.findPaymentMuMapPaymentInVAccountIdNoClearing(accountNo,payType)) {
-//			if ("N".equals(bean.getClearing())) {
+		for (PaymentMMapPaymentInvBean bean : paymentInvoiceManualDao.findPaymentMuMapPaymentInVAccountId(accountNo,payType)) {
+			if ("N".equals(bean.getClearing())) {
 				List<TrsMethodEpisOffline> methodResult = trsMethodManualDao.findByManualId(Long.valueOf(bean.getManualId()));
 				StringBuffer paymentMethod = new StringBuffer();
 				for (TrsMethodEpisOffline method : methodResult) {
@@ -96,7 +96,7 @@ public class HistoryPaymentServiceImp implements HistoryPaymentService {
 				bean.setCreateDateStr(dt.format(bean.getCreateDate()));
 				bean.setPaymentMethod(paymentMethod.toString().substring(1));
 				result.add(bean);
-//			}
+			}
 		}
 		return result;
 

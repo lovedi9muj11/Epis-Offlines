@@ -22,52 +22,6 @@ public class PaymentDTO {
 	private String recordStatus;
 	private String accountNo;
 	private Long ManualId;
-	
-	//offline
-	private String branchName;
-	private String userName;
-	private String posNo;
-	private Long officerId;
-	private String userLogin;
-	private String posId;
-	
-	
-	public String getBranchName() {
-		return branchName;
-	}
-	public void setBranchName(String branchName) {
-		this.branchName = branchName;
-	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-	public String getPosNo() {
-		return posNo;
-	}
-	public void setPosNo(String posNo) {
-		this.posNo = posNo;
-	}
-	public Long getOfficerId() {
-		return officerId;
-	}
-	public void setOfficerId(Long officerId) {
-		this.officerId = officerId;
-	}
-	public String getUserLogin() {
-		return userLogin;
-	}
-	public void setUserLogin(String userLogin) {
-		this.userLogin = userLogin;
-	}
-	public String getPosId() {
-		return posId;
-	}
-	public void setPosId(String posId) {
-		this.posId = posId;
-	}
 	public Long getPaymenId() {
 		return paymenId;
 	}

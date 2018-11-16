@@ -3,7 +3,6 @@ package th.co.maximus.service.impl;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -15,8 +14,6 @@ import org.springframework.web.client.RestTemplate;
 
 import th.co.maximus.bean.PaymentMMapPaymentInvBean;
 import th.co.maximus.bean.TmpInvoiceBean;
-import th.co.maximus.dao.CancelPaymentDTO;
-import th.co.maximus.dao.CancelPaymentDTO.Receipt;
 import th.co.maximus.dao.DeductionManualDao;
 import th.co.maximus.dao.PaymentInvoiceManualDao;
 import th.co.maximus.dao.PaymentManualDao;
@@ -25,14 +22,12 @@ import th.co.maximus.dao.TrsMethodManualDao;
 import th.co.maximus.dao.TrscreDitrefManualDao;
 import th.co.maximus.model.DuductionEpisOffline;
 import th.co.maximus.model.OfflineResultModel;
-import th.co.maximus.model.PaymentDTO;
 import th.co.maximus.model.PaymentEpisOfflineDTO;
 import th.co.maximus.model.PaymentInvoiceEpisOffline;
 import th.co.maximus.model.ReceiptOfflineModel;
 import th.co.maximus.model.TrsChequerefEpisOffline;
 import th.co.maximus.model.TrsCreditrefEpisOffline;
 import th.co.maximus.model.TrsMethodEpisOffline;
-import th.co.maximus.service.CancelPaymentService;
 import th.co.maximus.service.ClearingPaymentEpisOfflineService;
 import th.co.maximus.service.TmpInvoiceService;
 
@@ -69,20 +64,11 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 	@Autowired
 	private TmpInvoiceService tmpInvoiceService;
 	
-	@Autowired
-	private CancelPaymentService cancelPaymentService;
-	
 
 	@Override
 	public ReceiptOfflineModel findRecipt(Integer manualId) throws SQLException {
 		// TODO Auto-generated method stub
 		return paymentManualDao.findByManualId(manualId);
-	}
-	
-	@Override
-	public ReceiptOfflineModel findReciptStatus(Integer manualId,String status) throws SQLException {
-		// TODO Auto-generated method stub
-		return paymentManualDao.findByManualId(manualId,status);
 	}
 
 	@Override
@@ -133,13 +119,14 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 		List<TrsChequerefEpisOffline> chequeList = new ArrayList<>();
 		TmpInvoiceBean invoid = new TmpInvoiceBean();
 		try {
+
+			
 			Boolean isOther = false;
 			if (creteria != null) {
 				for (PaymentMMapPaymentInvBean payment : creteria) {
 					PaymentEpisOfflineDTO paymentEpisOfflineDTO = new PaymentEpisOfflineDTO();
 					Integer manualId =  Integer.valueOf(payment.getManualId().toString());
-					ReceiptOfflineModel recrip = findReciptStatus(manualId,payment.getRecordStatus());
-					paymentEpisOfflineDTO.setManualID(manualId.toString());
+					ReceiptOfflineModel recrip = findRecipt(manualId);
 					if (recrip != null) {
 						paymentList = findPaymentInvoice(manualId);
 						for (PaymentInvoiceEpisOffline pay : paymentList) {
@@ -224,11 +211,13 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 				JSONArray jsonArray = new JSONArray(postResponse.getBody());
 				for(int i=0; i<jsonArray.length(); i++) {
 					OfflineResultModel obj = new OfflineResultModel();
-					obj.setManualId(jsonArray.getJSONObject(i).getLong("manualId"));
+					
+						obj.setManualId(jsonArray.getJSONObject(i).getLong("manualId"));
+				
 					obj.setMessage(jsonArray.getJSONObject(i).getString("message"));
 					obj.setStatus(jsonArray.getJSONObject(i).getString("status"));
 					obj.setRecriptNo(jsonArray.getJSONObject(i).getString("recriptNo"));
-					if(("SUCCESS").equals(obj.getStatus())) {
+					if(("SUCCESS").equals(obj)) {
 						obj.setManualIdOnline(jsonArray.getJSONObject(i).getLong("manualIdOnline"));
 					}
 					objMessage.add(obj);
@@ -241,83 +230,6 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 		}
 		
 		return objMessage;
-	}
-	
-	@Override
-	public HashMap<String, Object> clearingCencelPayment() throws Exception {
-		HashMap<String, Object> result = new HashMap<>();
-		List<PaymentMMapPaymentInvBean> list = new ArrayList<>();
-		List<PaymentDTO> dtoList = new ArrayList<>();
-		list = cancelPaymentService.findAllCancelPayments("N");
-		CancelPaymentDTO cancelDTO = new CancelPaymentDTO();
-		String postUrl = "";
-		List<OfflineResultModel> objMessage = callOnlinePayment(list);
-		try {
-
-			for (OfflineResultModel offlineResultModel : objMessage) {
-				if (offlineResultModel.getStatus().equals("SUCCESS")) {
-
-					for (PaymentMMapPaymentInvBean payment : list) {
-						if (offlineResultModel.getManualId() == payment.getManualId()) {
-							PaymentDTO manualDTO = new PaymentDTO();
-
-							manualDTO.setAccountNo(payment.getAccountNo());
-							manualDTO.setBranchCode(payment.getBranchCode());
-							manualDTO.setBranchArea(payment.getBrancharea());
-							manualDTO.setInvoiceNo(payment.getInvoiceNo());
-							manualDTO.setReceiptNoManual(payment.getReceiptNoManual());
-							manualDTO.setRemark(payment.getRemark());
-							manualDTO.setManualId(offlineResultModel.getManualIdOnline());
-							manualDTO.setCreateBy("EPIS5");
-							manualDTO.setPaidAmount(payment.getPaidAmount());
-							manualDTO.setRecordStatus("");
-							manualDTO.setSource(payment.getSource());
-							manualDTO.setVatAmount(payment.getVatAmount());
-							manualDTO.setUserLogin(payment.getCreateBy());
-							manualDTO.setUserName(payment.getCreateBy());
-							dtoList.add(manualDTO);
-
-							cancelDTO = dtoCancel(payment);
-						}
-					}
-					if (dtoList.size() > 0) {
-						postUrl = url.concat("/offlineCancel/paymentManualCancelOnline.json?ap=SSO&un=EPIS5&pw=password");
-						restTemplate.postForEntity(postUrl, dtoList, String.class);
-						
-						postUrl = url.concat("/offlineCancel/cancelPaymentProductOffline.json?ap=SSO&un=EPIS5&pw=password");
-						restTemplate.postForEntity(postUrl, cancelDTO, String.class);
-						updateStatusClearing(offlineResultModel.getManualId(), "Y");
-
-					}
-
-				} else {
-					updateStatusClearing(offlineResultModel.getManualId(), "N");
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		result.put("data", objMessage);
-		return result;
-	}
-	
-	public CancelPaymentDTO dtoCancel(PaymentMMapPaymentInvBean payment) {
-		CancelPaymentDTO dto = new CancelPaymentDTO();
-		Receipt rp = new Receipt();
-		List<Receipt> rpList = new ArrayList<>();
-		rp.setAccountName(payment.getCustomerName());
-		rp.setAddrLine1(payment.getAddressNewCancelPayment());
-		rp.setNo(payment.getReceiptNoManual());
-		rp.setReasonCode(payment.getReasonCode());
-		rp.setIsIbaiss(payment.getServiceType());
-		rpList.add(rp);
-		dto.setReceipts(rpList);
-		dto.setFlagCancel("Y");
-		dto.setFlgNewReceipt(false);
-		dto.setUserAuthen(payment.getCreateBy());
-
-		return dto;
 	}
 
 
