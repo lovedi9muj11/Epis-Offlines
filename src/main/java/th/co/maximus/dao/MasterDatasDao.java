@@ -31,5 +31,9 @@ public interface MasterDatasDao {
 	MasterDatasBean findByppt1(String ppt1);
 
 	List<MasterDatasBean> findByCussegmentValue(String userGroup);
+	
+	MasterDatasBean getNTBUPLACE();
+	
+	MasterDatasBean getNTSHOPNAME();
 
 }

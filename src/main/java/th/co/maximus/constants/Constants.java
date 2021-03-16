@@ -12,6 +12,8 @@ public class Constants {
 	public static final String SUCCESS = "SUCCESS";
 	
 	public static final String INIT_PROJECT = "INIT_PROJECT";
+	public static final String INIT_PROJECT_NT_BUPLACE = "NT_BUPLACE";
+	public static final String INIT_PROJECT_NT_SHOPNAME = "NT_SHOPNAME";
 	public static final String INIT_PROJECT_GL = "11149102";
 	
 	/** The Constant BLANK. */
