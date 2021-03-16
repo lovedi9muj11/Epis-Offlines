@@ -23,6 +23,7 @@ import th.co.maximus.auth.model.UserProfile;
 import th.co.maximus.bean.ReportPaymentBean;
 import th.co.maximus.bean.ReportPaymentCriteria;
 import th.co.maximus.constants.Constants;
+import th.co.maximus.dao.MasterDatasDao;
 import th.co.maximus.model.UserBean;
 import th.co.maximus.service.MasterDataService;
 
@@ -32,7 +33,8 @@ public class PaymentReport extends BaseExcelRptService {
 	@Autowired
 	MasterDataService masterDataService;
 	
-
+	@Autowired
+	private MasterDatasDao masterDatasDao;
 	
 	Locale localeTH = new Locale("th", "TH");
 	Locale localeEN = new Locale("en", "EN");
@@ -89,7 +91,7 @@ public class PaymentReport extends BaseExcelRptService {
 		 Cell company = row1.getCell(0);
 		 Cell dateFromToCriteria = row1.getCell(5);
 		 Cell datePrint = row1.getCell(12);
-		 company.setCellValue("บริษัท กสท โทรคมนาคม จำกัด (มหาชน)");
+		 company.setCellValue("บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)");
 //		 dateFromToCriteria.setCellValue(Constants.report.HEARDER_DATE+" "+ convertDateFormat(criteria.getDateFrom())+" "+"- "+ convertTimeFormat(criteria.getDateTo()));
 		 dateFromToCriteria.setCellValue(Constants.report.HEARDER_DATE+" "+ convertDateFormat(criteria.getDateFrom()));
 		 datePrint.setCellValue(Constants.report.HEARDER_DATE_TIME+" "+ date+" "+time);
@@ -97,10 +99,10 @@ public class PaymentReport extends BaseExcelRptService {
 		 dateFromToCriteria.setCellStyle(txtCenterHeadBor);
 		 datePrint.setCellStyle(txtRightBor);
 		 
-		 Row row2 = sh.getRow(2);
-		 Cell agency = row2.getCell(0);
-		 agency.setCellValue("หน่วยงานรับชำระ  :  "+ criteria.getMachinePaymentName());
-		 agency.setCellStyle(txtCenterBor);
+//		 Row row2 = sh.getRow(2);
+//		 Cell agency = row2.getCell(0);
+//		 agency.setCellValue("หน่วยงานรับชำระ  :  "+ criteria.getMachinePaymentName());
+//		 agency.setCellStyle(txtCenterBor);
 		 
 //		 Row row3 = sh.getRow(3);
 //		 Cell user = row3.getCell(0);
@@ -108,13 +110,13 @@ public class PaymentReport extends BaseExcelRptService {
 //		 user.setCellStyle(txtCenterBor);
 		 
 
-		 Row row4 = sh.getRow(rowServiceOther);
-		 Cell service = row4.getCell(rowCellServiceOther);
-		 service.setCellValue("บริการ :  "+serviceName);
-		 if(CollectionUtils.isNotEmpty(result)) {if(Constants.Service.SERVICE_TYPE_IBACSS.equals(result.get(0).getServiceType())) {service.setCellStyle(txtCenterBor);}
-		 else {service.setCellStyle(txtCenterHeadBor);}}else {service.setCellStyle(txtCenterBor);}
+//		 Row row4 = sh.getRow(rowServiceOther);
+//		 Cell service = row4.getCell(rowCellServiceOther);
+//		 service.setCellValue("บริการ :  "+serviceName);
+//		 if(CollectionUtils.isNotEmpty(result)) {if(Constants.Service.SERVICE_TYPE_IBACSS.equals(result.get(0).getServiceType())) {service.setCellStyle(txtCenterBor);}
+//		 else {service.setCellStyle(txtCenterHeadBor);}}else {service.setCellStyle(txtCenterBor);}
 		 
-		 int indexRow = 7;
+		 int indexRow = 4;
 		 int index = 1;
 		 double sumAllTotal = 0.00;
 		 double sumAllNoVat = 0.00;
@@ -202,7 +204,7 @@ public class PaymentReport extends BaseExcelRptService {
 					}
 					 
 					 cell13.setCellValue(profile.getBranchArea());
-					 cell14.setCellValue(masterDataService.findByKeyCode(profile.getBranchArea()).getValue());
+					 cell14.setCellValue(masterDatasDao.getNTSHOPNAME().getValue());
 					 
 					 cell.setCellStyle(txtTableCenter);
 					 cell1Add.setCellStyle(txtCenterTable);
@@ -250,7 +252,7 @@ public class PaymentReport extends BaseExcelRptService {
 					}
 					 
 					 cell12.setCellValue(profile.getBranchArea());
-					 cell13.setCellValue(masterDataService.findByKeyCode(profile.getBranchArea()).getValue());
+					 cell13.setCellValue(masterDatasDao.getNTSHOPNAME().getValue());
 					 
 					 cell.setCellStyle(txtTableCenter);
 					 cell1Add.setCellStyle(txtCenterTable);

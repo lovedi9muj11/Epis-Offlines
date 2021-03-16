@@ -67,11 +67,11 @@
 				<textFieldExpression><![CDATA["จาก    " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Cat_Hl_Common" x="0" y="47" width="180" height="23" uuid="d36f0a74-404b-4e49-98c5-337fa6bb9cc4"/>
+				<reportElement style="Cat_Hl_Common" x="0" y="47" width="200" height="23" uuid="d36f0a74-404b-4e49-98c5-337fa6bb9cc4"/>
 				<textElement>
 					<font fontName="FreesiaUPC" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[บริษัท กสท โทรคมนาคม จำกัด (มหาชน)]]></text>
+				<text><![CDATA[บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Cat_Hl_Common" x="274" y="47" width="80" height="23" uuid="1d668dba-9ee2-4aa2-854d-6bce16502b65"/>

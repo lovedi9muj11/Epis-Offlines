@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PaymentTemplate" language="groovy" pageWidth="920" pageHeight="441" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="880" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b9d09e0-4ce0-446b-9577-a779418e6fa7">
 	<property name="ireport.zoom" value="1.6105100000000014"/>
 	<property name="ireport.x" value="0"/>
@@ -147,12 +146,12 @@
 				<text><![CDATA[รายงานการชำระเงินผ่าน POS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="38" width="191" height="20" uuid="0a5dbea7-df29-419e-a2cf-e70632b1a058"/>
+				<reportElement x="4" y="38" width="201" height="20" uuid="0a5dbea7-df29-419e-a2cf-e70632b1a058"/>
 				<textElement textAlignment="Left" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" isBold="true" isItalic="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[บริษัท กสท โทรคมนาคม จำกัด (มหาชน)]]></text>
+				<text><![CDATA[บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="3" y="58" width="85" height="20" uuid="8737cad5-f7ef-4187-9640-8e2d427eac04"/>

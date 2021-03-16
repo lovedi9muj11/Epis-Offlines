@@ -25,14 +25,15 @@ import th.co.maximus.bean.HistoryPaymentRS;
 import th.co.maximus.bean.HistoryReportBean;
 import th.co.maximus.bean.ReportTaxRSBean;
 import th.co.maximus.constants.Constants;
+import th.co.maximus.dao.MasterDatasDao;
 import th.co.maximus.model.UserBean;
 import th.co.maximus.service.MasterDataService;
 
 @Service("rptServiceFull")
 public class RptServiceFull extends BaseExcelRptService{
 	
-//	@Autowired
-//	private MasterDatasDao masterDatasDao;
+	@Autowired
+	private MasterDatasDao masterDatasDao;
 	
 	@Autowired
 	MasterDataService masterDataService;
@@ -147,7 +148,7 @@ public class RptServiceFull extends BaseExcelRptService{
 				cell9.setCellValue(new Double((entity.get(i).getAmount()==null?BigDecimal.ZERO:entity.get(i).getAmount()).toString()));
 				cell10.setCellValue(Constants.Status.ACTIVE.equals(entity.get(i).getRecordStatus())?Constants.Status.ACTIVE_:Constants.Status.ACTIVE_C);
 				cell11.setCellValue(profile.getBranchArea());
-				cell12.setCellValue(masterDataService.findByKeyCode(profile.getBranchArea()).getValue());
+				cell12.setCellValue(masterDatasDao.getNTSHOPNAME().getValue());
 				cell13.setCellValue(entity.get(i).getCreateBy());
 				
 				// gen name surname
@@ -167,11 +168,11 @@ public class RptServiceFull extends BaseExcelRptService{
 				cell7.setCellStyle(numRightBor);
 				cell8.setCellStyle(numRightBor);
 				cell9.setCellStyle(numRightBor);
-				cell10.setCellStyle(txtLeft);
-				cell11.setCellStyle(txtLeft);
-				cell12.setCellStyle(txtLeft);
-				cell13.setCellStyle(txtLeft);
-				cell14.setCellStyle(txtLeft);
+				cell10.setCellStyle(txtCenter);
+				cell11.setCellStyle(txtCenter);
+				cell12.setCellStyle(txtCenter);
+				cell13.setCellStyle(txtCenter);
+				cell14.setCellStyle(txtCenter);
 				
 			}
 		}
@@ -232,8 +233,8 @@ public class RptServiceFull extends BaseExcelRptService{
 				cell2.setCellValue(formateDateEN.format(entity.get(i).getDocumentDate()).toString());
 				cell3.setCellValue(rsBeans.get(i).getPosName());
 				cell4.setCellValue(rsBeans.get(i).getBranchCode());
-				cell5.setCellValue(rsBeans.get(i).getBranchArea());
-				cell6.setCellValue(masterDataService.findByKeyCode(rsBeans.get(i).getBranchArea()).getValue());
+				cell5.setCellValue(masterDatasDao.getNTBUPLACE().getValue());
+				cell6.setCellValue(masterDatasDao.getNTSHOPNAME().getValue());
 				cell7.setCellValue(rsBeans.get(i).getUserName());
 				
 				UserBean user = masterDataService.findByUsername(rsBeans.get(i).getUserName());

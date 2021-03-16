@@ -41,6 +41,7 @@ import th.co.maximus.bean.VatBean;
 import th.co.maximus.constants.Constants;
 import th.co.maximus.dao.MapGLDaoImp;
 import th.co.maximus.dao.MasterDataDao;
+import th.co.maximus.dao.MasterDatasDao;
 import th.co.maximus.model.UserBean;
 import th.co.maximus.service.MasterDataService;
 
@@ -48,7 +49,8 @@ import th.co.maximus.service.MasterDataService;
 @Service("paymentReportPdf")
 public class PaymentReportPdf {
 	
-
+	@Autowired
+	private MasterDatasDao masterDatasDao;
 	
 	Locale TH = new Locale("th", "TH");
 	SimpleDateFormat dateFormate = new SimpleDateFormat("dd/MM/yyyy HH-mm-ss", TH);
@@ -341,7 +343,7 @@ public class PaymentReportPdf {
 								beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 								
 								parameters = new HashMap<String, Object>();
-								parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+								parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 								parameters.put("posNoHead", reportPaymentBean.getPosName());
 								parameters.put("posNo", profile.getPos());
 								parameters.put("accountCode", "accountCode");
@@ -421,7 +423,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", reportPaymentBean.getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -512,7 +514,7 @@ public class PaymentReportPdf {
 						}
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", reportPaymentBean.getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -604,7 +606,7 @@ public class PaymentReportPdf {
 						beanSup = masterDataService.findByUsername(userPayment.split(" ")[0]);
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", reportPaymentBean.getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -826,7 +828,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", resultSource.get(i).getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -900,7 +902,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPayment);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", resultSource.get(i).getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -1094,7 +1096,7 @@ public class PaymentReportPdf {
 					}else {
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", resultSource.get(i).getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -1164,7 +1166,7 @@ public class PaymentReportPdf {
 					
 					if(i==(resultSource.size()-1)) {
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", resultSource.get(i).getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -1482,7 +1484,7 @@ public class PaymentReportPdf {
 								beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 								
 								parameters = new HashMap<String, Object>();
-								parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+								parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 								parameters.put("posNoHead", reportPaymentBean.getPosName());
 								parameters.put("posNo", profile.getPos());
 								parameters.put("accountCode", "accountCode");
@@ -1533,7 +1535,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", reportPaymentBean.getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -1583,7 +1585,7 @@ public class PaymentReportPdf {
 						beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", reportPaymentBean.getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -1639,7 +1641,7 @@ public class PaymentReportPdf {
 						beanSup = masterDataService.findByUsername(userPayment);
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", reportPaymentBean.getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", reportPaymentBean.getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -1808,7 +1810,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPaymentOld.split(" ")[0]);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", resultSource.get(i).getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -1856,7 +1858,7 @@ public class PaymentReportPdf {
 							beanSup = masterDataService.findByUsername(userPayment);
 							
 							parameters = new HashMap<String, Object>();
-							parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 							parameters.put("posNoHead", resultSource.get(i).getPosName());
 							parameters.put("posNo", profile.getPos());
 							parameters.put("accountCode", "accountCode");
@@ -2008,7 +2010,7 @@ public class PaymentReportPdf {
 					}else {
 						
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", resultSource.get(i).getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");
@@ -2051,7 +2053,7 @@ public class PaymentReportPdf {
 					
 					if(i==(resultSource.size()-1)) {
 						parameters = new HashMap<String, Object>();
-						parameters.put("serviceTypeHead", resultSource.get(i).getBranchName());
+						parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());
 						parameters.put("posNoHead", resultSource.get(i).getPosName());
 						parameters.put("posNo", profile.getPos());
 						parameters.put("accountCode", "accountCode");

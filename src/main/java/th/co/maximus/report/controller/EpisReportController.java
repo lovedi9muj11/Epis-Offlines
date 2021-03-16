@@ -60,9 +60,9 @@ import th.co.maximus.bean.HistoryReportBean;
 import th.co.maximus.bean.InvEpisOfflineOtherBean;
 import th.co.maximus.bean.InvEpisOfflineReportBean;
 import th.co.maximus.bean.InvPaymentOrderTaxBean;
-import th.co.maximus.bean.MasterDatasBean;
 import th.co.maximus.bean.ReportTaxRSBean;
 import th.co.maximus.constants.Constants;
+import th.co.maximus.dao.MasterDatasDao;
 import th.co.maximus.model.TrsChequerefEpisOffline;
 import th.co.maximus.model.TrsCreditrefEpisOffline;
 import th.co.maximus.model.TrsMethodEpisOffline;
@@ -94,6 +94,9 @@ public class EpisReportController {
 
 	@Autowired
 	private MasterDataService masterDataService;
+	
+	@Autowired
+	private MasterDatasDao masterDatasDao;
 	
 	@Autowired
 	private ReportTaxService reportTaxService;
@@ -133,7 +136,7 @@ public class EpisReportController {
 		String JASPER_JRXML_FILENAME = "";
 		
 		//maew
-		List<InvEpisOfflineReportBean> printCollections1 = collections;
+//		List<InvEpisOfflineReportBean> printCollections1 = collections;
 		
 		if (Constants.DOCTYPE.RF.equals(invObject.getDocType())) {
 			if (invObject.getDiscount().signum() == 0) {
@@ -172,11 +175,11 @@ public class EpisReportController {
 		UserBean bean = masterDataService.findByUsername(profile.getUsername());
 		// UserDto resultUser = userService.findByUsername(profile.getUsername());
 		//exportPDFReport.setBranArea(valueBean.getValue());
-		MasterDatasBean valueBean1 = masterDataService.findByKeyCode(printCollections1.get(0).getBranArea());
+//		MasterDatasBean valueBean1 = masterDataService.findByKeyCode(printCollections1.get(0).getBranArea());
 //		exportPDFReport.setBranArea(valueBean1.getProperty1() + " " + valueBean1.getValue());
-		exportPDFReport.setBranArea(valueBean1.getValue());
+		exportPDFReport.setBranArea(masterDatasDao.getNTSHOPNAME().getValue());
 		
-		exportPDFReport.setBracnCode(" " + profile.getBranchCode() + " ");
+		exportPDFReport.setBracnCode("");
 		exportPDFReport.setDocumentDate(invObject.getDocumentDate());
 		exportPDFReport.setCustNo(invObject.getCustNo());
 		exportPDFReport.setDocumentNo(invObject.getDocumentNo());
@@ -400,12 +403,12 @@ public class EpisReportController {
 			exportPDFReport.setDiscountSpecial(spDis.setScale(2, RoundingMode.HALF_DOWN));
 			exportPDFReport.setDiscountSpecialCheck("N");
 		}
-		System.out.println("xxxxxxxxxx "+printCollections.get(0).getBranArea());
-		MasterDatasBean valueBean = masterDataService.findByKeyCode(printCollections.get(0).getBranArea());
+//		System.out.println("xxxxxxxxxx "+printCollections.get(0).getBranArea());
+//		MasterDatasBean valueBean = masterDataService.findByKeyCode(printCollections.get(0).getBranArea());
 		
 		UserBean bean = masterDataService.findByUsername(profile.getUsername());
-		exportPDFReport.setBranArea(valueBean.getProperty1() + " " + valueBean.getValue());
-		exportPDFReport.setBracnCode(printCollections.get(0).getBracnCode());
+		exportPDFReport.setBranArea(masterDatasDao.getNTSHOPNAME().getValue());
+		exportPDFReport.setBracnCode("");
 		exportPDFReport.setDocumentDate(printCollections.get(0).getDocumentDate());
 		exportPDFReport.setVatRate(printCollections.get(0).getVatRate());
 		
@@ -703,7 +706,7 @@ public class EpisReportController {
 		p.setAlignment(Element.ALIGN_RIGHT);
 		document.add(p);
 
-		document.add(createParagraphWithSpaces(fontNormal, "บริษัท กสท โทรคมนาคม จำกัด (มหาชน)", "%110s",
+		document.add(createParagraphWithSpaces(fontNormal, "บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)", "%110s",
 				"ระหว่างวันที่ : " + invPaymentOrderTaxBean.getDateForm() + "  ถึง: "
 						+ invPaymentOrderTaxBean.getDateTo(),
 				"%110s", "วันเวลาที่พิมพ์ :" + invPaymentOrderTaxBean.getPrintDate()));
@@ -977,13 +980,12 @@ public class EpisReportController {
 			endDate = res[2] + "/" + res[1] + "/" + res[0];
 		}
 
-		MasterDatasBean valueBean = masterDataService.findByKeyCode(profile.getBranchArea());
 		exportPDFReport.setDateForm(fomeDate + " " + creteria.getDateFromHour() + ":" + creteria.getDateFromMinute());
 		exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 		exportPDFReport.setPrintDate(dateDocument);
-		exportPDFReport.setBranchArea(valueBean.getValue());
+		exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
 		exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
-		exportPDFReport.setBranchCodeEmp(profile.getBranchCode());
+		exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 		exportPDFReport.setEmpSummaryName(invObject.getEmpName());
 
 		BigDecimal summaryBeforeVt = new BigDecimal(0);
@@ -1152,9 +1154,9 @@ public class EpisReportController {
 					exportPDFReport.setDateForm(fomeDate + " " + creteria.getDateFromHour() + ":" + creteria.getDateFromMinute());
 					exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 					exportPDFReport.setPrintDate(dateDocument);
-					exportPDFReport.setBranchArea(valueBean.getValue());
+					exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
 					exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
-					exportPDFReport.setBranchCodeEmp(profile.getBranchCode());
+					exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 					exportPDFReport.setEmpSummaryName(invObject.getEmpName());
 					vatRate = collections.get(i).getVatRate()+"";
 					
@@ -1329,13 +1331,12 @@ public class EpisReportController {
 			endDate = res[2] + "/" + res[1] + "/" + res[0];
 		}
 
-		MasterDatasBean valueBean = masterDataService.findByKeyCode(profile.getBranchArea());
 		exportPDFReport.setDateForm(fomeDate + " " + creteria.getDateFromHour() + ":" + creteria.getDateFromMinute());
 		exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 		exportPDFReport.setPrintDate(dateDocument);
-		exportPDFReport.setBranchArea(valueBean.getValue());
+		exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
 		exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
-		exportPDFReport.setBranchCodeEmp(profile.getBranchCode());
+		exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 
 //		BigDecimal summaryBeforeVt = new BigDecimal(0);
 //		BigDecimal vatSummary = new BigDecimal(0);
