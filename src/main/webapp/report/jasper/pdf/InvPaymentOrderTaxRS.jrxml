@@ -9,7 +9,7 @@
 	<style name="Cat_Bg_Title" isDefault="true" mode="Opaque" backcolor="#808080" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Bt_Title" isDefault="true" mode="Opaque" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Wt_Title" isDefault="true" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Hl_Common" isDefault="true" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
+	<style name="Cat_Hl_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
 	<style name="Cat_Ct_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
 	<parameter name="ReportSource" class="th.co.maximus.bean.InvPaymentOrderTaxBean"/>
 	<parameter name="lastPage" class="java.lang.String"/>
@@ -49,7 +49,7 @@
 				<textElement>
 					<font fontName="FreesiaUPC" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[บริษัท กสท โทรคมนาคม จำกัด (มหาชน)]]></text>
+				<text><![CDATA[บริษัท โทรคมนาคมแห่งชาติ จำกัด (มหาชน)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Cat_Hl_Common" x="239" y="47" width="80" height="23" uuid="1d668dba-9ee2-4aa2-854d-6bce16502b65"/>
