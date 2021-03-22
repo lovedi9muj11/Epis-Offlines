@@ -319,11 +319,18 @@ function isDate(txtDate) {
 function batchHMode(value) {
 	hourValue = value
 	minValue = value
-	if(value=='1')$('#radioMin').prop('checked',true);
-	else if(value=='2')$('#radioMin2').prop('checked',true);
 	
 	$('#hour').empty();
 	$('#minute').empty();
 	setHour()
-	setMinute()
+	if(value=='1') {
+		document.getElementById("minute").disabled = false;
+		$('#radioMin').prop('checked',true);
+		setMinute()
+	} else if(value=='2') {
+		$("#minute").val('0')
+		document.getElementById("minute").disabled = true;
+//		$('#radioMin2').prop('checked',true);
+	}
+	
 }
