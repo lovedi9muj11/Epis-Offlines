@@ -180,7 +180,7 @@ public class OfflineBatch implements Job {
 		List<PaymentMMapPaymentInvBean> result = new ArrayList<>();
 		init();
 		String mac = GetMacAddress.getMACAddress();
-		result = cancelPaymentService.findAllCancelPaymentsActive(Constants.USER.LOGIN_FLAG_N);
+		result = cancelPaymentService.findAllCancelPaymentsActive(Constants.USER.LOGIN_FLAG_N,"ASC");
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
 		if (CollectionUtils.isNotEmpty(result)) {

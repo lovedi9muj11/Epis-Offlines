@@ -18,7 +18,7 @@ public interface CancelPaymentService {
 	
 	public List<PaymentMMapPaymentInvBean> findAllCancelPayments(String clearing) throws Exception;
 	
-	public List<PaymentMMapPaymentInvBean> findAllCancelPaymentsActive(String clearing) throws Exception;
+	public List<PaymentMMapPaymentInvBean> findAllCancelPaymentsActive(String clearing,String Order) throws Exception;
 
 	List<DropDownBean> reasonCancelIbacss();
 	

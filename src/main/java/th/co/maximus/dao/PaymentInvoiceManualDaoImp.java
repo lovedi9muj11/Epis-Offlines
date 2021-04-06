@@ -652,14 +652,14 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 	}
 	
 	@Override
-	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentStatusActive(String clearing) {
+	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentStatusActive(String clearing ,String Order) {
 		StringBuilder sql = new StringBuilder();
 		List<Object> param = new LinkedList<Object>();
 		sql.append(" SELECT * FROM RECEIPT_MANUAL payment_m ");
 		sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL paument_inv ON payment_m.MANUAL_ID = paument_inv.MANUAL_ID");
 		sql.append(" WHERE (payment_m.CLEARING = ? OR payment_m.CLEARING = 'W') AND payment_m.RECORD_STATUS = '"+Constants.Status.ACTIVE+"' ");
 		param.add(clearing);
-		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC");
+		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE "+Order+" ");
 		Object[] paramArr = param.toArray();
 		return jdbcTemplate.query(sql.toString(), paramArr, PaymentManual);
 	}

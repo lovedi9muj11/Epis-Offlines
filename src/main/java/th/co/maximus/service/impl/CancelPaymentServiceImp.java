@@ -365,8 +365,8 @@ public class CancelPaymentServiceImp implements CancelPaymentService {
 	}
 	
 	@Override
-	public List<PaymentMMapPaymentInvBean> findAllCancelPaymentsActive(String clearing) throws Exception {
-		List<PaymentMMapPaymentInvBean> result = paymentInvoiceManualDao.findPaymentMuMapPaymentStatusActive(clearing);
+	public List<PaymentMMapPaymentInvBean> findAllCancelPaymentsActive(String clearing,String Order) throws Exception {
+		List<PaymentMMapPaymentInvBean> result = paymentInvoiceManualDao.findPaymentMuMapPaymentStatusActive(clearing,Order);
 		for (PaymentMMapPaymentInvBean resultBean : result) {
 			List<TrsMethodEpisOffline> methodResult = trsMethodManualDao
 					.findByManualId(Long.valueOf(resultBean.getManualId()));
@@ -400,7 +400,7 @@ public class CancelPaymentServiceImp implements CancelPaymentService {
 			if(null!=resultBean.getCreateDate())resultBean.setCreateDateStr(dt.format(resultBean.getCreateDate()));
 			resultBean.setPaymentMethod(paymentMethod.toString());
 			resultBean.setBranchAreaCode(resultBean.getBrancharea());
-			resultBean.setBrancharea(masterDatasDao.findByKey(resultBean.getBrancharea()).getValue());
+			resultBean.setBrancharea(masterDatasDao.getNTSHOPNAME().getValue());
 			
 		}
 		

@@ -42,7 +42,7 @@ public class PaymentManualServiceImpl implements PaymentManualService{
 		Date date = new Date();
 		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd 00:00.00.000");
 		List<MasterDataBean> serviceDepartmentList = new ArrayList<>();
-		serviceDepartmentList = masterDataService.findAllByServiceDepartment();
+//		serviceDepartmentList = masterDataService.findAllByServiceDepartment();
 		MasterDataBean branch = masterDataDao.findAllByBranchcode();
 //		String da = dt.format(paymentBean.getDeadlines());
 		dt.format(date);
@@ -53,11 +53,11 @@ public class PaymentManualServiceImpl implements PaymentManualService{
 			paymentManualBean.setReceiptNoManual(paymentBean.getDocumentNo());
 			paymentManualBean.setPaidDate(new Timestamp(date.getTime()));
 			
-			for(int x = 0 ; x <serviceDepartmentList.size(); x++ ) {
-				if(StringUtils.isNotBlank(serviceDepartmentList.get(x).getValue()))if(serviceDepartmentList.get(x).getValue().equals(branch.getText())) {
-					brancharea = serviceDepartmentList.get(x).getValue();
-				}
-			}
+//			for(int x = 0 ; x <serviceDepartmentList.size(); x++ ) {
+//				if(StringUtils.isNotBlank(serviceDepartmentList.get(x).getValue()))if(serviceDepartmentList.get(x).getValue().equals(branch.getText())) {
+//					brancharea = serviceDepartmentList.get(x).getValue();
+//				}
+//			}
 			paymentManualBean.setBrancharea(brancharea);
 			paymentManualBean.setBranchCode(paymentBean.getCustBrach());
 			paymentManualBean.setPaidAmount(paymentBean.getAmountInvoice());

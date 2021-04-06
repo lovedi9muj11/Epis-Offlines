@@ -128,7 +128,7 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 				posNo = masterDataBean.getText();
 			}
 
-			if (masterDataBean.getValue().equals("BRANCH_CODE")) {
+			if (masterDataBean.getValue().equals("NT_BUPLACE")) {
 				branCode = masterDataBean.getText();
 			}
 		}

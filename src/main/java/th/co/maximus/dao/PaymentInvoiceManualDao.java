@@ -17,7 +17,7 @@ public interface PaymentInvoiceManualDao {
 	
 	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentInVs(String clearing);
 	
-	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentStatusActive(String clearing);
+	public List<PaymentMMapPaymentInvBean> findPaymentMuMapPaymentStatusActive(String clearing,String Order);
 	
 	public void insert(PaymentInvoiceManualBean paymentInvoiceManualBean);
 
