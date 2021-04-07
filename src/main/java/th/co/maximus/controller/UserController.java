@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import th.co.maximus.auth.model.UserDto;
 import th.co.maximus.auth.service.UserService;
-import th.co.maximus.bean.MasterDataBean;
 import th.co.maximus.bean.UserBean;
 import th.co.maximus.constants.Constants;
 import th.co.maximus.dao.MasterDataDao;
@@ -85,9 +84,9 @@ public class UserController {
 		
 		userBean.setUserBeans(resultList);
 		
-		MasterDataBean masterDataBean = new MasterDataBean();
-		masterDataBean = masterDataDao.findGroupTypeByKeyCode("BRANCH_AREA");
-		userBean.setCenterServiceName(masterDataDao.findGroupTypeByKeyCode(masterDataBean.getText()).getText());
+//		MasterDataBean masterDataBean = new MasterDataBean();
+//		masterDataBean = masterDataDao.findGroupTypeByKeyCode("BRANCH_AREA");
+		userBean.setCenterServiceName(masterDataDao.findGroupTypeByKeyCode(Constants.INIT_PROJECT_NT_SHOPNAME).getText());
 		return userBean;
 	}
 	

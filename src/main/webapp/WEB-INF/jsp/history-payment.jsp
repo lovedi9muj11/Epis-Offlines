@@ -22,7 +22,7 @@
 <script src="${contextPath}/resources/js/utils.js" type="text/javascript"></script>
 <script src="${contextPath}/resources/lib/autoNumeric-1.7.4.js"></script>
 
-<title>Menu</title>
+<title>Epis Offline</title>
 
 </head>
 <body>

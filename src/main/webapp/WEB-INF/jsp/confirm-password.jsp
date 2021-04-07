@@ -18,7 +18,7 @@ var DEFALUT = 'Defalut';
 <script src="${contextPath}/resources/js/confirm-password.js"></script>
 <script src="${contextPath}/resources/lib/sweetalert.min.js"></script>
 <script src="${contextPath}/resources/js/HoldOn.js"></script>
-<title>Menu</title>
+<title>Epis Offline</title>
 
 <script type="text/javascript">
 var CONFIRM_SAVE = 'เปลี่ยนรหัสสำเร็จ ';

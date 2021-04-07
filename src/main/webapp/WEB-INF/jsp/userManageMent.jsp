@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${contextPath}/resources/css/styles/DataTables/DataTables-1.10.15/js/dataTables.bootstrap.js"></script>
 <script src="${contextPath}/resources/js/userMgt.js"></script>
 <script src="${contextPath}/resources/js/HoldOn.js"></script>
-<title>Menu</title>
+<title>Epis Offline</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 

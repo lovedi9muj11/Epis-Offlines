@@ -28,7 +28,7 @@
 	}
 </style>
 
-<title>Menu</title>
+<title>Epis Offline</title>
 
 </head>
 <body>

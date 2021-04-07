@@ -26,6 +26,7 @@ $(document).ready(function () {
     $("#error").hide();
     $("#success").hide();
     $("#notClear").hide();
+    $("#notClear2").hide();
     hidePanel()
     showPanel('1');
     removeCssLi();
@@ -150,6 +151,7 @@ $(document).ready(function () {
     	    $("#error").hide();
     	    $("#success").hide();
     	    $("#notClear").hide();
+    	    $("#notClear2").hide();
       	  if(confirm){
       		cancelPaymentTB.clear().draw();
       			var dataSend = { "userName": $('#userName').val(), "password": $('#password').val() };
@@ -182,6 +184,10 @@ $(document).ready(function () {
       		     		        contentType: "application/json; charset=utf-8",
       		     		        success: function (res) {
       		     		        	if(res.length != 0){
+      		     		        		if('C'==res[0].recordStatus) {
+      		     		        			$("#notClear2").show();
+      		     		        		}
+      		     		        		
       		     		        		for (var i = 0; i < res.length; i++) {
       		     		        			createRow(res[i], i, "cancelPaymentTB", false);
       		     		        			

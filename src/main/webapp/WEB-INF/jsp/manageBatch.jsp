@@ -26,7 +26,7 @@ var PLS_SELECT_ALL_MINUTE = 'ทุกนาที';
 <script src="${contextPath}/resources/js/manageBatch.js"></script>
 <script src="${contextPath}/resources/js/HoldOn.js"></script>
 <%-- <script src="${contextPath}/resources/js/utils.js"></script> --%>
-<title>Menu</title>
+<title>Epis Offline</title>
 
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/resources/css/select2.min.css" rel="stylesheet">

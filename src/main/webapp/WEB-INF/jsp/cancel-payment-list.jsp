@@ -26,7 +26,7 @@ var PLS_SELECT = 'กรุณาเลือก';
 <script type="text/javascript" src="${contextPath}/resources/js/cancel-payment.js"></script>
 <script src="${contextPath}/resources/js/utils.js" type="text/javascript"></script>
 <script src="${contextPath}/resources/lib/autoNumeric-1.7.4.js"></script>
-<title>Menu</title>
+<title>Epis Offline</title>
 
 </head>
 <body>
@@ -50,6 +50,10 @@ var PLS_SELECT = 'กรุณาเลือก';
 	  <div name="notClear" id="notClear"  class="alert alert-danger alert-dismissable fade in" style="display: none; font-size: 150%;">
 	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 	    <strong>ไม่สามารถยกเลิกได้ เนื่องจากรายการนี้ถูกส่งข้อมูลไปยังระบบออนไลน์แล้ว</strong>
+	  </div>
+	  <div name="notClear2" id="notClear2"  class="alert alert-danger alert-dismissable fade in" style="display: none; font-size: 150%;">
+	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>ไม่สามารถยกเลิกได้ เนื่องจากรายการนี้ยกเลิกสำเร็จแล้ว</strong>
 	  </div>
 		<ul class="list-inline">
 			<li id="li1">ค้นหาข้อมูลการชำระบริการ</li> >>
