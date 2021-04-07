@@ -231,8 +231,8 @@ public class RptServiceFull extends BaseExcelRptService{
 				
 				cell1.setCellValue(i+1);
 				cell2.setCellValue(formateDateEN.format(entity.get(i).getDocumentDate()).toString());
-				cell3.setCellValue(rsBeans.get(i).getPosName());
-				cell4.setCellValue(rsBeans.get(i).getBranchCode());
+				cell3.setCellValue(masterDatasDao.getNTBUPLACE().getValue());
+				cell4.setCellValue(masterDatasDao.getBRANCHAREA().getValue());
 				cell5.setCellValue(masterDatasDao.getNTBUPLACE().getValue());
 				cell6.setCellValue(masterDatasDao.getNTSHOPNAME().getValue());
 				cell7.setCellValue(rsBeans.get(i).getUserName());

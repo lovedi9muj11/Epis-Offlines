@@ -35,5 +35,7 @@ public interface MasterDatasDao {
 	MasterDatasBean getNTBUPLACE();
 	
 	MasterDatasBean getNTSHOPNAME();
+	
+	MasterDatasBean getBRANCHAREA();
 
 }
