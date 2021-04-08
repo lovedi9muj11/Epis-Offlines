@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PaymentTemplate" language="groovy" pageWidth="920" pageHeight="441" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="880" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b9d09e0-4ce0-446b-9577-a779418e6fa7">
 	<property name="ireport.zoom" value="1.6105100000000014"/>
 	<property name="ireport.x" value="0"/>
@@ -383,7 +384,8 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="27" splitType="Stretch">
+		<band height="28" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
 				<reportElement x="10" y="-2" width="22" height="20" uuid="35085949-7a1e-4981-b637-7c4d87d22fad"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
@@ -455,10 +457,10 @@
 				<textFieldExpression><![CDATA[$F{accountSubNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="218" y="0" width="93" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
+				<reportElement x="218" y="1" width="93" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="FreesiaUPC" size="12" isUnderline="false" pdfEncoding="Identity-H"/>
 					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
 				</textElement>

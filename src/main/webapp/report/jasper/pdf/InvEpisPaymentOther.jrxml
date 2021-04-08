@@ -97,14 +97,14 @@
 				<text><![CDATA[ชื่อ :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="43" width="199" height="30" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
+				<reportElement x="82" y="43" width="235" height="30" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$P{ReportSource}.getCustNameCheck() == "Y"]]></printWhenExpression>
 				</reportElement>
 				<box padding="2"/>
 				<textElement verticalAlignment="Top">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
-					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getCustName()]]></textFieldExpression>
 			</textField>
@@ -162,7 +162,7 @@
 				<box padding="2"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
-					<paragraph lineSpacing="Proportional" lineSpacingSize="2.7"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getCustomerAddress()]]></textFieldExpression>
 			</textField>

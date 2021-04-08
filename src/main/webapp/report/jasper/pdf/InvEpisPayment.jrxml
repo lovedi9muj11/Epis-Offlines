@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InvEpisPayment" pageWidth="590" pageHeight="500" orientation="Landscape" columnWidth="570" leftMargin="10" rightMargin="10" topMargin="50" bottomMargin="20" uuid="0e48b0a0-6ddd-4796-ac07-8d03dfaf3486">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -64,13 +65,13 @@
 				<text><![CDATA[ชื่อ :]]></text>
 			</staticText>
 			<textField>
-				<reportElement mode="Transparent" x="61" y="59" width="142" height="25" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
+				<reportElement mode="Transparent" x="61" y="59" width="268" height="27" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$P{ReportSource}.getCheckCustomerName() == "Y"]]></printWhenExpression>
 				</reportElement>
 				<textElement verticalAlignment="Top">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
-					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getCustName()]]></textFieldExpression>
 			</textField>
@@ -112,13 +113,13 @@
 				<text><![CDATA[ที่อยู่ :]]></text>
 			</staticText>
 			<textField>
-				<reportElement mode="Transparent" x="61" y="82" width="268" height="25" backcolor="#FFFFFF" uuid="87cecdb8-586c-434b-b333-c3702ca8a4ec">
+				<reportElement mode="Transparent" x="61" y="83" width="268" height="25" backcolor="#FFFFFF" uuid="87cecdb8-586c-434b-b333-c3702ca8a4ec">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<printWhenExpression><![CDATA[$P{ReportSource}.getCheckAddress() == "Y"]]></printWhenExpression>
 				</reportElement>
-				<textElement verticalAlignment="Middle">
+				<textElement verticalAlignment="Top">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
-					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getCustomerAddress()]]></textFieldExpression>
 			</textField>
@@ -180,14 +181,14 @@
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBracnCode() + $P{ReportSource}.getBranArea()]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="257" y="36" width="58" height="23" backcolor="#FFFFFF" uuid="7dde4717-0d48-4f57-a247-4194b00e4211"/>
+				<reportElement mode="Transparent" x="248" y="36" width="71" height="23" backcolor="#FFFFFF" uuid="7dde4717-0d48-4f57-a247-4194b00e4211"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getServiceNo()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement style="Cat_Hl_Common" x="210" y="36" width="47" height="23" uuid="304bb089-10b8-4304-bbc2-3091d84cfda6">
+				<reportElement style="Cat_Hl_Common" x="210" y="36" width="39" height="23" uuid="304bb089-10b8-4304-bbc2-3091d84cfda6">
 					<printWhenExpression><![CDATA[$P{ReportSource}.getCheckSubNo() == "Y"]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">

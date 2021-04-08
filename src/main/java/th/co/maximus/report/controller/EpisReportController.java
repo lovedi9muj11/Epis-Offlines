@@ -177,7 +177,7 @@ public class EpisReportController {
 		//exportPDFReport.setBranArea(valueBean.getValue());
 //		MasterDatasBean valueBean1 = masterDataService.findByKeyCode(printCollections1.get(0).getBranArea());
 //		exportPDFReport.setBranArea(valueBean1.getProperty1() + " " + valueBean1.getValue());
-		exportPDFReport.setBranArea(masterDatasDao.getNTSHOPNAME().getValue());
+		exportPDFReport.setBranArea(masterDatasDao.getNTBUPLACE().getValue() +" "+masterDatasDao.getNTSHOPNAME().getValue());
 		
 		exportPDFReport.setBracnCode("");
 		exportPDFReport.setDocumentDate(invObject.getDocumentDate());
@@ -407,7 +407,7 @@ public class EpisReportController {
 //		MasterDatasBean valueBean = masterDataService.findByKeyCode(printCollections.get(0).getBranArea());
 		
 		UserBean bean = masterDataService.findByUsername(profile.getUsername());
-		exportPDFReport.setBranArea(masterDatasDao.getNTSHOPNAME().getValue());
+		exportPDFReport.setBranArea(masterDatasDao.getNTBUPLACE().getValue() + " " + masterDatasDao.getNTSHOPNAME().getValue());
 		exportPDFReport.setBracnCode("");
 		exportPDFReport.setDocumentDate(printCollections.get(0).getDocumentDate());
 		exportPDFReport.setVatRate(printCollections.get(0).getVatRate());

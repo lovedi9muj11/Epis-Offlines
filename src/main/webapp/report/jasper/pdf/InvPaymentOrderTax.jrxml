@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InvPaymentOrderTax" pageWidth="878" pageHeight="595" orientation="Landscape" columnWidth="823" leftMargin="30" rightMargin="25" topMargin="25" bottomMargin="25" isSummaryWithPageHeaderAndFooter="true" uuid="0e48b0a0-6ddd-4796-ac07-8d03dfaf3486">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="ireport.zoom" value="1.2100000000000009"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="Cat_Bg_Title" isDefault="true" mode="Opaque" backcolor="#808080" fill="Solid" vAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Bt_Title" isDefault="true" mode="Opaque" forecolor="#000000" fill="Solid" vAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Wt_Title" isDefault="true" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Hl_Common" isDefault="true" forecolor="#000000" fill="Solid" vAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
-	<style name="Cat_Ct_Common" isDefault="true" forecolor="#000000" fill="Solid" vAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
+	<style name="Cat_Bg_Title" isDefault="true" mode="Opaque" backcolor="#808080" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
+	<style name="Cat_Bt_Title" isDefault="true" mode="Opaque" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
+	<style name="Cat_Wt_Title" isDefault="true" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
+	<style name="Cat_Hl_Common" isDefault="true" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
+	<style name="Cat_Ct_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
 	<parameter name="ReportSource" class="th.co.maximus.bean.InvPaymentOrderTaxBean"/>
 	<parameter name="lastPage" class="java.lang.String"/>
 	<queryString>
@@ -181,7 +182,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[TAX ID]]></text>
 				</staticText>
@@ -192,7 +193,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ลำดับ]]></text>
 				</staticText>
@@ -203,7 +204,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[วันเดือนปี]]></text>
 				</staticText>
@@ -214,7 +215,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[เลขที่ใบกำกับภาษี]]></text>
 				</staticText>
@@ -228,7 +229,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ชื่อผู้ซื้อสินค้า/ผู้รับบริการ]]></text>
 				</staticText>
@@ -239,7 +240,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[สาขาที่]]></text>
 				</staticText>
@@ -250,7 +251,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[มูลค่าสินค้าหรือบริการ]]></text>
 				</staticText>
@@ -261,7 +262,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[จำนวนเงินภาษีมูลค่าเพิ่ม]]></text>
 				</staticText>
@@ -272,18 +273,18 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[จำนวนเงินรวม]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="764" y="0" width="59" height="30" uuid="f7d0cc0c-fc4b-40e2-919a-16c6349742e4"/>
+					<reportElement x="765" y="0" width="58" height="30" uuid="f7d0cc0c-fc4b-40e2-919a-16c6349742e4"/>
 					<box>
 						<topPen lineWidth="1.0"/>
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[สถานะ]]></text>
 				</staticText>
@@ -373,7 +374,9 @@
 				<textFieldExpression><![CDATA[$F{branchCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="512" y="0" width="91" height="20" uuid="617a1f67-b1d3-4574-9fda-d6e1d66ca443"/>
+				<reportElement x="512" y="0" width="90" height="20" uuid="617a1f67-b1d3-4574-9fda-d6e1d66ca443">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<box>
 					<topPen lineStyle="Dotted"/>
 					<leftPen lineStyle="Dotted"/>
@@ -386,7 +389,7 @@
 				<textFieldExpression><![CDATA[$F{beforeVatReport}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="605" y="0" width="91" height="20" uuid="cf5a96d0-5b63-4b5e-a128-6393bff22d24"/>
+				<reportElement x="602" y="0" width="91" height="20" uuid="cf5a96d0-5b63-4b5e-a128-6393bff22d24"/>
 				<box>
 					<topPen lineStyle="Dotted"/>
 					<leftPen lineStyle="Dotted"/>
@@ -399,7 +402,10 @@
 				<textFieldExpression><![CDATA[$F{vatReport}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="695" y="0" width="69" height="20" uuid="47886bfb-8e1c-4ec2-9601-0ebe1b32df7a"/>
+				<reportElement x="693" y="0" width="75" height="20" uuid="47886bfb-8e1c-4ec2-9601-0ebe1b32df7a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<box>
 					<topPen lineStyle="Dotted"/>
 					<leftPen lineStyle="Dotted"/>
@@ -412,7 +418,9 @@
 				<textFieldExpression><![CDATA[$F{summaryReport}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="764" y="0" width="59" height="20" uuid="e58c11f3-8285-4783-8480-e111e6ac7f54"/>
+				<reportElement x="767" y="0" width="56" height="20" uuid="e58c11f3-8285-4783-8480-e111e6ac7f54">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
 				<box>
 					<topPen lineStyle="Dotted"/>
 					<leftPen lineStyle="Dotted"/>

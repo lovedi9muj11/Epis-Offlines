@@ -8,7 +8,7 @@
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<style name="Cat_Bg_Title" isDefault="true" mode="Opaque" backcolor="#808080" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Bt_Title" isDefault="true" mode="Opaque" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Wt_Title" isDefault="true" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
+	<style name="Cat_Wt_Title" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Hl_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
 	<style name="Cat_Ct_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
 	<parameter name="ReportSource" class="th.co.maximus.bean.InvPaymentOrderTaxBean"/>
@@ -61,21 +61,21 @@
 			<textField>
 				<reportElement x="321" y="47" width="99" height="23" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f"/>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getDateForm()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="729" y="47" width="88" height="23" uuid="d7d436de-cdd0-41f5-a899-81eba3715974"/>
-				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+				<textElement textAlignment="Left">
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getPrintDate()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="448" y="47" width="110" height="23" uuid="ae0d543d-5634-4487-aa6a-6eadf662c242"/>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getDateTo()]]></textFieldExpression>
 			</textField>
@@ -96,7 +96,7 @@
 			<textField>
 				<reportElement x="91" y="82" width="151" height="23" uuid="87cecdb8-586c-434b-b333-c3702ca8a4ec"/>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBranchArea()]]></textFieldExpression>
 			</textField>
@@ -110,14 +110,14 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="381" y="82" width="174" height="23" uuid="6da2af95-23b5-4d87-8eb3-913e255dd3ff"/>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getInvoiceNo()]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="43" y="116" width="99" height="23" uuid="f1e2424b-e328-42b6-b31d-89654d57417e"/>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBranchCodeEmp()]]></textFieldExpression>
 			</textField>
@@ -163,7 +163,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[จำนวนฉบับ]]></text>
 				</staticText>
@@ -174,7 +174,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ลำดับ]]></text>
 				</staticText>
@@ -185,7 +185,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[วันเดือนปี]]></text>
 				</staticText>
@@ -196,7 +196,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[เครื่องที่รับชำระ]]></text>
 				</staticText>
@@ -209,49 +209,49 @@
 						<topPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ใบกำกับภาษี]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="227" y="20" width="125" height="20" uuid="78fe6fa0-9b8b-49e4-b88b-53ce23efb6b7"/>
 					<textElement textAlignment="Center">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[จาก]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="362" y="20" width="125" height="20" uuid="f636b14f-5be9-4469-8da5-41f9dc24ee25"/>
 					<textElement textAlignment="Center">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ถึง]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="555" y="20" width="86" height="20" uuid="6cdc2400-4de6-4a34-86ac-6cf9eb6fe727"/>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ก่อนภาษีมูลค่าเพิ่ม]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="652" y="20" width="63" height="20" uuid="fff7a7ad-e4e9-4118-b6de-e53eaa2c4117"/>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[ภาษีมูลค่าเพิ่ม]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="721" y="20" width="91" height="20" uuid="a5b412dc-313f-434f-84fa-4afdc5a1aa86"/>
 					<textElement textAlignment="Right">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รวมภาษีมูลค่าเพิ่ม]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="555" y="0" width="264" height="20" uuid="8846e1a9-50f4-4123-ac1b-529acb043a47"/>
 					<textElement textAlignment="Center">
-						<font isBold="true"/>
+						<font size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[จำนวนเงินทั้งหมด]]></text>
 				</staticText>
@@ -271,7 +271,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{documentDateStr}]]></textFieldExpression>
 			</textField>
@@ -284,7 +284,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{posName}]]></textFieldExpression>
 			</textField>
@@ -297,7 +297,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{to}]]></textFieldExpression>
 			</textField>
@@ -312,7 +312,7 @@
 			<textField>
 				<reportElement x="1" y="5" width="42" height="20" uuid="0cabca96-0da6-43bf-b5ba-908b14520f80"/>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numberRun}]]></textFieldExpression>
 			</textField>
@@ -327,7 +327,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
@@ -342,7 +342,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new BigDecimal($F{beforeVatStr})]]></textFieldExpression>
@@ -358,7 +358,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new BigDecimal($F{vatStr})]]></textFieldExpression>
@@ -374,7 +374,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new BigDecimal($F{paidAmountStr})]]></textFieldExpression>
@@ -388,7 +388,7 @@
 					<rightPen lineStyle="Dotted"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="FreesiaUPC" size="14" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{from}]]></textFieldExpression>
 			</textField>
@@ -409,35 +409,35 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รวมอัตรา]]></text>
 				</staticText>
 				<textField>
 					<reportElement x="42" y="0" width="118" height="30" uuid="5fd5de72-1a15-4b5e-84fe-bc9727d4d76d"/>
 					<textElement>
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getVatRate()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="729" y="0" width="90" height="30" uuid="4632707f-8294-4f20-a907-da824b501ae6">
+					<reportElement x="726" y="0" width="92" height="30" uuid="4632707f-8294-4f20-a907-da824b501ae6">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="647" y="0" width="80" height="30" uuid="5100f70f-2ddd-4085-95bf-5291f9974049">
+					<reportElement x="644" y="0" width="82" height="30" uuid="5100f70f-2ddd-4085-95bf-5291f9974049">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getVatSummary()]]></textFieldExpression>
@@ -447,7 +447,7 @@
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
@@ -468,7 +468,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รวมอัตรา]]></text>
 				</staticText>
@@ -479,7 +479,7 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					</textElement>
 					<text><![CDATA[%]]></text>
 				</staticText>
@@ -490,36 +490,39 @@
 						<bottomPen lineWidth="1.0"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					</textElement>
 					<text><![CDATA[0]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="555" y="0" width="90" height="30" uuid="4d71468c-9953-4d6d-a015-81f5bf489ea5">
+					<reportElement x="555" y="0" width="90" height="29" uuid="4d71468c-9953-4d6d-a015-81f5bf489ea5">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="647" y="0" width="80" height="30" uuid="eb8ca117-ffff-4f62-944c-620f4343264e">
+					<reportElement x="645" y="0" width="82" height="29" uuid="eb8ca117-ffff-4f62-944c-620f4343264e">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="729" y="1" width="90" height="30" uuid="7bcbd890-8e8f-4c6a-8140-036ae9c5a96f">
+					<reportElement x="726" y="1" width="92" height="29" uuid="7bcbd890-8e8f-4c6a-8140-036ae9c5a96f">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
@@ -528,6 +531,7 @@
 			<frame>
 				<reportElement x="0" y="176" width="820" height="37" uuid="5ba8e79b-dbeb-42e3-b6ab-1e79e84987ce">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.2"/>
@@ -536,38 +540,38 @@
 				<staticText>
 					<reportElement x="0" y="0" width="42" height="30" uuid="64572ed5-9a0e-4952-9cc2-364bb303d173"/>
 					<textElement verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รวมทั้งสิ้น]]></text>
 				</staticText>
 				<textField pattern="#,##0.00">
-					<reportElement x="554" y="0" width="90" height="30" uuid="220ba5ad-e32c-49d7-b1e9-834772e7f600">
+					<reportElement x="554" y="1" width="90" height="30" uuid="220ba5ad-e32c-49d7-b1e9-834772e7f600">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="647" y="0" width="80" height="30" uuid="0a7ed7ed-c11d-497c-a844-f6b38b5d7580">
+					<reportElement x="644" y="1" width="82" height="30" uuid="0a7ed7ed-c11d-497c-a844-f6b38b5d7580">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getVatSummary()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="729" y="0" width="90" height="30" uuid="39e8b512-a8dc-4e9b-b51e-b6b3645a02a9">
+					<reportElement x="726" y="1" width="92" height="30" uuid="39e8b512-a8dc-4e9b-b51e-b6b3645a02a9">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
@@ -587,6 +591,7 @@
 			<frame>
 				<reportElement x="0" y="116" width="820" height="30" uuid="aa19dddf-0c7e-4291-9132-ba739254e40d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.2"/>
@@ -594,8 +599,9 @@
 				</box>
 			</frame>
 			<frame>
-				<reportElement x="1" y="146" width="820" height="30" uuid="689e789e-7c3c-4073-bfd6-8e838461ccdc">
+				<reportElement x="0" y="146" width="820" height="30" uuid="689e789e-7c3c-4073-bfd6-8e838461ccdc">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<box>
 					<topPen lineWidth="1.2"/>
@@ -609,45 +615,47 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement verticalAlignment="Middle">
-					<font fontName="FreesiaUPC" isBold="true"/>
+					<font fontName="FreesiaUPC" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[รวมอัตรา]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="44" y="116" width="117" height="30" uuid="bf598cb2-1d88-4630-b543-c0983800554f"/>
+				<reportElement x="44" y="117" width="117" height="28" uuid="bf598cb2-1d88-4630-b543-c0983800554f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<textElement>
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getVatRate()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="555" y="116" width="90" height="30" uuid="33e06658-d852-4002-98ff-10f80693b8a2">
+				<reportElement x="555" y="117" width="90" height="28" uuid="33e06658-d852-4002-98ff-10f80693b8a2">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="729" y="116" width="90" height="30" uuid="9f11385d-7ebe-4a08-b930-6ad462575b1d">
+				<reportElement x="727" y="117" width="92" height="28" uuid="9f11385d-7ebe-4a08-b930-6ad462575b1d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="647" y="116" width="80" height="30" uuid="a9c08979-0dbd-43fb-baee-058d9ad2163c">
+				<reportElement x="645" y="117" width="82" height="28" uuid="a9c08979-0dbd-43fb-baee-058d9ad2163c">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getVatSummary()]]></textFieldExpression>
@@ -659,7 +667,7 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement verticalAlignment="Middle">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[%]]></text>
 			</staticText>
@@ -670,67 +678,71 @@
 					<bottomPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[0]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="554" y="146" width="90" height="30" uuid="e5c41ad6-858f-4b56-afec-91ad787f61e9">
+				<reportElement x="554" y="147" width="90" height="28" uuid="e5c41ad6-858f-4b56-afec-91ad787f61e9">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="729" y="146" width="90" height="30" uuid="c7e475b5-964f-420d-b450-009acb9ff57c">
+				<reportElement x="726" y="147" width="92" height="28" uuid="c7e475b5-964f-420d-b450-009acb9ff57c">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="647" y="146" width="80" height="30" uuid="52663e9c-ba13-49d1-bf3d-243a4e406728">
+				<reportElement x="644" y="147" width="82" height="28" uuid="52663e9c-ba13-49d1-bf3d-243a4e406728">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[0.00]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="555" y="116" width="90" height="30" uuid="9bb40ed9-ab38-4737-a2d4-6cab60396a3c">
+				<reportElement x="555" y="117" width="90" height="28" uuid="9bb40ed9-ab38-4737-a2d4-6cab60396a3c">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="729" y="116" width="90" height="30" uuid="281d84bd-7a2a-4688-b983-bc2c4f2802e8">
+				<reportElement x="726" y="117" width="92" height="28" uuid="281d84bd-7a2a-4688-b983-bc2c4f2802e8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="647" y="116" width="80" height="30" uuid="2585775c-7b7c-4cca-947b-588ebe7ce6fb">
+				<reportElement x="644" y="117" width="82" height="28" uuid="2585775c-7b7c-4cca-947b-588ebe7ce6fb">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
-					<font fontName="FreesiaUPC" isBold="false"/>
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					<paragraph rightIndent="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getVatSummary()]]></textFieldExpression>
@@ -744,7 +756,7 @@
 				<staticText>
 					<reportElement x="0" y="0" width="123" height="30" uuid="ce8a076d-8246-47eb-a927-b9ef818421db"/>
 					<textElement verticalAlignment="Middle">
-						<font fontName="FreesiaUPC" isBold="true"/>
+						<font fontName="FreesiaUPC" size="12" isBold="true"/>
 					</textElement>
 					<text><![CDATA[รวมตามหน่วยงานที่รับชำระ]]></text>
 				</staticText>
@@ -753,27 +765,27 @@
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="647" y="1" width="80" height="30" uuid="275be424-6448-4149-9e09-b38efa557d4f">
+					<reportElement x="644" y="1" width="82" height="30" uuid="275be424-6448-4149-9e09-b38efa557d4f">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getVatSummary()]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="729" y="0" width="90" height="30" uuid="0c9dbc54-1b4b-47b6-8fe6-95edce33ad1b">
+					<reportElement x="727" y="0" width="92" height="30" uuid="0c9dbc54-1b4b-47b6-8fe6-95edce33ad1b">
 						<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					</reportElement>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						<paragraph rightIndent="2"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
@@ -781,14 +793,14 @@
 				<textField>
 					<reportElement x="124" y="0" width="171" height="30" uuid="515c9b2b-227a-456e-8ed4-ea8172c52b2c"/>
 					<textElement>
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getBranchArea()]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="501" y="0" width="42" height="30" uuid="8b01246f-fe85-45c9-9d46-613a6fe17ee0"/>
 					<textElement textAlignment="Right">
-						<font fontName="FreesiaUPC" isBold="false"/>
+						<font fontName="FreesiaUPC" size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getQuantitySummery()]]></textFieldExpression>
 				</textField>
