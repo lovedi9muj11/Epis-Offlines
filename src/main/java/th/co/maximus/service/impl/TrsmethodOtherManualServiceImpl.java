@@ -13,6 +13,7 @@ import th.co.maximus.bean.DeductionManualBean;
 import th.co.maximus.bean.TrsChequeRefManualBean;
 import th.co.maximus.bean.TrsMethodManualBean;
 import th.co.maximus.bean.TrscreDitrefManualBean;
+import th.co.maximus.constants.Constants;
 import th.co.maximus.dao.DeductionManualDao;
 import th.co.maximus.dao.TrsChequeRefManualDao;
 import th.co.maximus.dao.TrsMethodManualDao;
@@ -97,14 +98,13 @@ public class TrsmethodOtherManualServiceImpl implements TrsmethodOtherManualServ
 							trscreDitrefManualDao.insertTrscreDitrefManua(trscreDitrefManualBean);
 							
 						}else if(paymentTranPriceBean.getTypePayment().equals("CH")){
-							//Date date1 = new Date(paymentTranPriceBean.getDateCheck());
-							Date date1 = null;
+							SimpleDateFormat df = new SimpleDateFormat(Constants.DateTime.DATE_FORMAT, Constants.localeEN);
+							Date date1 = new Date();
 							try {
-								date1 = new SimpleDateFormat("dd/MM/yyyy").parse(paymentTranPriceBean.getDateCheck());
+								date1 = df.parse(paymentTranPriceBean.getDateCheck());
 							} catch (ParseException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
-							} 
+							}
 							trsChequeRefManualBean.setChequeNo(paymentTranPriceBean.getCheckNo());
 							trsChequeRefManualBean.setPublisherId(paymentTranPriceBean.getBankNo());
 							trsChequeRefManualBean.setPublisher(paymentTranPriceBean.getBankName());
@@ -113,7 +113,7 @@ public class TrsmethodOtherManualServiceImpl implements TrsmethodOtherManualServ
 							trsChequeRefManualBean.setUpdateDttm(new Timestamp(date.getTime()));
 							trsChequeRefManualBean.setVersionStamp(1L);
 //							trsChequeRefManualBean.setChequeDate(new Timestamp(paymentTranPriceBean.getDateCheck().getTime()));
-							trsChequeRefManualBean.setCheDate(date1);
+							trsChequeRefManualBean.setCheDate(new Timestamp(date1.getTime()));
 							trsChequeRefManualBean.setMethodManualId(Long.valueOf(idTrsMethod));
 							trsChequeRefManualBean.setCreateBy(paymentBean.getUserName());	
 							trsChequeRefManualBean.setUpdateBy(paymentBean.getUserName());

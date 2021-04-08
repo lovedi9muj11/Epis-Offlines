@@ -19,7 +19,7 @@ public class TrsChequeRefManualBean {
 	private  Timestamp   reverseArDate;
 	private  String   bounceStatus;
 	private  Long   methodManualId;
-	private Date cheDate;
+	private Timestamp cheDate;
 	private String createBy;
 	private Date createDate;
 	private String updateBy;
@@ -117,12 +117,6 @@ public class TrsChequeRefManualBean {
 	public void setMethodManualId(Long methodManualId) {
 		this.methodManualId = methodManualId;
 	}
-	public Date getCheDate() {
-		return cheDate;
-	}
-	public void setCheDate(Date cheDate) {
-		this.cheDate = cheDate;
-	}
 	public String getCreateBy() {
 		return createBy;
 	}
@@ -146,6 +140,12 @@ public class TrsChequeRefManualBean {
 	}
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+	public Timestamp getCheDate() {
+		return cheDate;
+	}
+	public void setCheDate(Timestamp cheDate) {
+		this.cheDate = cheDate;
 	}
 
 	

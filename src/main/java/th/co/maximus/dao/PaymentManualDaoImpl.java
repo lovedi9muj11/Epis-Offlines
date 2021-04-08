@@ -104,7 +104,7 @@ public class PaymentManualDaoImpl implements PaymentManualDao {
 				if (resultSet.next()) {
 					return new PaymentResultReq(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3),
 							resultSet.getBigDecimal(4), resultSet.getString(5), resultSet.getDate(6),
-							resultSet.getDate(7), resultSet.getBigDecimal(8), resultSet.getBigDecimal(9),
+							resultSet.getTimestamp(7), resultSet.getBigDecimal(8), resultSet.getBigDecimal(9),
 							resultSet.getBigDecimal(10), resultSet.getBigDecimal(11), resultSet.getBigDecimal(12),
 							resultSet.getString(13), resultSet.getBigDecimal(14), resultSet.getBigDecimal(15),
 							resultSet.getBigDecimal(16),resultSet.getDate(17));

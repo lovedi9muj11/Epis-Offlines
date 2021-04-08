@@ -34,7 +34,6 @@ public class TrsmethodManualServiceImpl implements TrsmethodManualService{
 	@Autowired TrsChequeRefManualDao trsChequeRefManualDao;
 	@Autowired DeductionManualDao deductionManualDao;
 	
-	@SuppressWarnings("deprecation")
 	@Override
 	public int insertTrsmethodManual(PaymentFirstBean paymentBean,int userId) {
 		Date date = new Date();
@@ -112,11 +111,11 @@ public class TrsmethodManualServiceImpl implements TrsmethodManualService{
 							trscreDitrefManualDao.insertTrscreDitrefManua(trscreDitrefManualBean);
 							
 						}else if(paymentTranPriceBean.getTypePayment().equals("CH")){
-							SimpleDateFormat df = new SimpleDateFormat(Constants.DateTime.DATE_FORMAT);
+							SimpleDateFormat df = new SimpleDateFormat(Constants.DateTime.DATE_FORMAT, Constants.localeEN);
 							Date date1 = new Date();
 							
 							try {
-								date1 = new Timestamp(df.parse(paymentTranPriceBean.getDateCheck()).getTime());
+								date1 = df.parse(paymentTranPriceBean.getDateCheck());
 							} catch (ParseException e) {
 								e.printStackTrace();
 							}
@@ -128,7 +127,7 @@ public class TrsmethodManualServiceImpl implements TrsmethodManualService{
 							trsChequeRefManualBean.setUpdateDttm(new Timestamp(date.getTime()));
 							trsChequeRefManualBean.setVersionStamp(1L);
 //							trsChequeRefManualBean.setChequeDate(new Timestamp(paymentTranPriceBean.getDateCheck().getTime()));
-							trsChequeRefManualBean.setCheDate(date1);
+							trsChequeRefManualBean.setCheDate(new Timestamp(date1.getTime()));
 							trsChequeRefManualBean.setMethodManualId(Long.valueOf(idTrsMethod));
 							trsChequeRefManualBean.setCreateBy(profile.getUsername());
 							trsChequeRefManualBean.setCreateDate(new Timestamp(date.getTime()));
