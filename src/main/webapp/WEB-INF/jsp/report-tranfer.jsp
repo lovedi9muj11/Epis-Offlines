@@ -20,7 +20,7 @@
 <script src="${contextPath}/resources/js/report-tranfer.js"></script>
 <script src="${contextPath}/resources/js/utils.js" type="text/javascript"></script>
 <script src="${contextPath}/resources/lib/autoNumeric-1.7.4.js"></script>
-<title>รานงานการชำระ</title>
+<title>EPIS Offline</title>
 
 </head>
 

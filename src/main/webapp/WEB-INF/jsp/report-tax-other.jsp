@@ -18,7 +18,7 @@
 <script type="text/javascript"
 	src="${contextPath}/resources/css/styles/DataTables/DataTables-1.10.15/js/dataTables.bootstrap.js"></script>
 <script src="${contextPath}/resources/js/report-tax-other.js"></script>
-<title>รานงานการชำระ บริการอื่นๆ</title>
+<title>EPIS Offline</title>
 
 </head>
 

@@ -186,6 +186,24 @@ public class MasterDatasDaoImpl implements MasterDatasDao {
 		return jdbcTemplate.queryForObject(sql.toString() , new masterData());
 	}
 	
+	@Override
+	public MasterDatasBean getPOSNAME() {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" SELECT * FROM MASTER_DATA WHERE GROUP_KEY = '"+Constants.INIT_PROJECT+"'");
+		sql.append("and KEYCODE = '"+Constants.INIT_PROJECT_POS_NAME+"'");
+		
+		return jdbcTemplate.queryForObject(sql.toString() , new masterData());
+	}
+
+	@Override
+	public MasterDatasBean getInitProject(String code) {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" SELECT * FROM MASTER_DATA WHERE GROUP_KEY = '"+Constants.INIT_PROJECT+"'");
+		sql.append("and KEYCODE = '"+code+"'");
+		
+		return jdbcTemplate.queryForObject(sql.toString() , new masterData());
+	}
+	
 	
 
 }

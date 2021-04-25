@@ -37,5 +37,9 @@ public interface MasterDatasDao {
 	MasterDatasBean getNTSHOPNAME();
 	
 	MasterDatasBean getBRANCHAREA();
+	
+	MasterDatasBean getPOSNAME();
+	
+	MasterDatasBean getInitProject(String code);
 
 }

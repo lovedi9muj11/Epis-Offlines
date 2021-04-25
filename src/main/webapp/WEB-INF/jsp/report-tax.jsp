@@ -21,7 +21,7 @@
 <!-- <script type="text/javascript" -->
 <!-- 	src="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></script> -->
 <script src="${contextPath}/resources/js/report-tax.js"></script>
-<title>รานงานการชำระ</title>
+<title>EPIS Offline</title>
 
 </head>
 
