@@ -1320,6 +1320,7 @@ public class PaymentReportPdf {
 				}
 				if (null != reportPaymentBean.getCustomerName()) {
 					reportPaymentBeanNew.setCustomerName(reportPaymentBean.getCustomerName());
+					reportPaymentBeanNew.setCustNameLength(reportPaymentBean.getCustomerName().length() < 22 ? "Y":"N" );
 				} else {
 					reportPaymentBeanNew.setCustomerName("-");
 				}

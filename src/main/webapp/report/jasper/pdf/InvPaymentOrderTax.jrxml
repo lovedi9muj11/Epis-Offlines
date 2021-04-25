@@ -9,7 +9,7 @@
 	<style name="Cat_Bg_Title" isDefault="true" mode="Opaque" backcolor="#808080" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Bt_Title" isDefault="true" mode="Opaque" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
 	<style name="Cat_Wt_Title" isDefault="true" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="16" isBold="true"/>
-	<style name="Cat_Hl_Common" isDefault="true" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
+	<style name="Cat_Hl_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="14" isBold="true"/>
 	<style name="Cat_Ct_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
 	<parameter name="ReportSource" class="th.co.maximus.bean.InvPaymentOrderTaxBean"/>
 	<parameter name="lastPage" class="java.lang.String"/>
@@ -292,7 +292,7 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="37" splitType="Immediate">
+		<band height="38" splitType="Immediate">
 			<property name="local_mesure_unitheight" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
@@ -322,20 +322,23 @@
 				<textFieldExpression><![CDATA[$F{documentNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="249" y="0" width="99" height="20" uuid="85328bf7-98e0-4f3b-be18-017b29a2662f"/>
+				<reportElement x="249" y="5" width="99" height="30" uuid="85328bf7-98e0-4f3b-be18-017b29a2662f">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
 				<box>
 					<topPen lineStyle="Dotted"/>
 					<leftPen lineStyle="Dotted"/>
 					<bottomPen lineWidth="0.0" lineStyle="Dotted" lineColor="#C0C0C0"/>
 					<rightPen lineStyle="Dotted"/>
 				</box>
-				<textElement textAlignment="Center">
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="1" y="31" width="822" height="1" uuid="ea661817-b0f0-4ec2-8874-c9fa6e1c7081"/>
+				<reportElement x="1" y="35" width="822" height="1" uuid="ea661817-b0f0-4ec2-8874-c9fa6e1c7081"/>
 				<graphicElement>
 					<pen lineWidth="3.0" lineStyle="Double"/>
 				</graphicElement>

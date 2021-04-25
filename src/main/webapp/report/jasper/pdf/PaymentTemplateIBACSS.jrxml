@@ -105,6 +105,7 @@
 	</field>
 	<field name="paymentMethod" class="java.lang.String"/>
 	<field name="refNoEx" class="java.lang.String"/>
+	<field name="custNameLength" class="java.lang.String"/>
 	<variable name="CURRENT_PAGE_NUMBER" class="java.lang.Integer" resetType="Page" incrementType="Page" calculation="Count">
 		<variableExpression><![CDATA[]]></variableExpression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
@@ -404,7 +405,9 @@
 				<textFieldExpression><![CDATA[$F{accountSubNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="219" y="2" width="97" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6"/>
+				<reportElement x="219" y="2" width="97" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
+					<printWhenExpression><![CDATA[$F{customerName}.length() > 22]]></printWhenExpression>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
 					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
@@ -438,6 +441,19 @@
 					<font fontName="FreesiaUPC" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="97" height="20" uuid="2c3a78fe-ab79-474b-8037-dc7cba3886f4">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{customerName}.length() <= 22]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

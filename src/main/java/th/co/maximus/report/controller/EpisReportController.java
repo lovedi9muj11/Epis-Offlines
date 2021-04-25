@@ -211,14 +211,19 @@ public class EpisReportController {
 
 		if (StringUtils.isNotBlank(invObject.getCustName())) {
 			exportPDFReport.setCheckCustomerName("Y");
+			exportPDFReport.setCustNameLength(invObject.getCustName().length() < 70 ? "Y":"N");
+			
 		} else {
 			exportPDFReport.setCheckCustomerName("N");
 		}
 		if (StringUtils.isNotBlank(invObject.getCustomerAddress())) {
 			exportPDFReport.setCheckAddress("Y");
+			exportPDFReport.setAddressLength(invObject.getCustomerAddress().length() < 70 ? "Y":"N");
+			
 		} else {
 			exportPDFReport.setCheckAddress("N");
 		}
+		
 		if (StringUtils.isNotBlank(invObject.getTaxId())) {
 			exportPDFReport.setCheckTaxId("Y");
 		} else {
@@ -420,12 +425,14 @@ public class EpisReportController {
 
 		if (StringUtils.isNotBlank(printCollections.get(0).getCustName())) {
 			exportPDFReport.setCustNameCheck("Y");
+			exportPDFReport.setCustNameLength(printCollections.get(0).getCustName().length() < 60 ? "Y":"N");
 		} else {
 			exportPDFReport.setCustNameCheck("N");
 		}
 
 		if (StringUtils.isNotBlank(printCollections.get(0).getCustomerAddress())) {
 			exportPDFReport.setAddressCheck("Y");
+			exportPDFReport.setAddressLength(printCollections.get(0).getCustomerAddress().length() < 60 ? "Y":"N");
 
 		} else {
 			exportPDFReport.setAddressCheck("N");
