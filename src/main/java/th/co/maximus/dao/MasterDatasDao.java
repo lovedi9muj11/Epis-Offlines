@@ -32,6 +32,8 @@ public interface MasterDatasDao {
 
 	List<MasterDatasBean> findByCussegmentValue(String userGroup);
 	
+	MasterDatasBean getTAXIDCAT();
+	
 	MasterDatasBean getNTBUPLACE();
 	
 	MasterDatasBean getNTSHOPNAME();

@@ -203,6 +203,15 @@ public class MasterDatasDaoImpl implements MasterDatasDao {
 		
 		return jdbcTemplate.queryForObject(sql.toString() , new masterData());
 	}
+
+	@Override
+	public MasterDatasBean getTAXIDCAT() {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" SELECT * FROM MASTER_DATA WHERE GROUP_KEY = '"+Constants.INIT_PROJECT+"'");
+		sql.append("and KEYCODE = '"+Constants.INIT_PROJECT_TAX_ID_CAT+"'");
+		
+		return jdbcTemplate.queryForObject(sql.toString() , new masterData());
+	}
 	
 	
 

@@ -117,6 +117,7 @@ public class ReportDaoImpl implements ReportDao{
 			sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL pim ON pim.MANUAL_ID = py.MANUAL_ID ");
 			sql.append(" WHERE 1=1 ");
 			sql.append(" and py.DOCTYPE = ? ");
+			sql.append(" or py.DOCTYPE = 'TX' ");
 //			sql.append(" and pim.SERVICE_TYPE = ? ");
 			if(StringUtils.isNoneEmpty(creteria.getDateFrom())) {
 				

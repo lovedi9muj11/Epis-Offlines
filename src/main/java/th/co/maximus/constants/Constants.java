@@ -16,6 +16,7 @@ public class Constants {
 	public static final String INIT_PROJECT_NT_SHOPNAME = "NT_SHOPNAME";
 	public static final String INIT_PROJECT_BRANCH_AREA = "BRANCH_AREA";
 	public static final String INIT_PROJECT_POS_NAME = "POS_NAME";
+	public static final String INIT_PROJECT_TAX_ID_CAT = "TAX_ID_CAT";
 	public static final String INIT_PROJECT_GL = "11149102";
 	
 	/** The Constant BLANK. */
