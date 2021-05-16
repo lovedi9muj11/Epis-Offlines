@@ -211,14 +211,19 @@ public class EpisReportController {
 
 		if (StringUtils.isNotBlank(invObject.getCustName())) {
 			exportPDFReport.setCheckCustomerName("Y");
+			exportPDFReport.setCustNameLength(invObject.getCustName().length() < 70 ? "Y":"N");
+			
 		} else {
 			exportPDFReport.setCheckCustomerName("N");
 		}
 		if (StringUtils.isNotBlank(invObject.getCustomerAddress())) {
 			exportPDFReport.setCheckAddress("Y");
+			exportPDFReport.setAddressLength(invObject.getCustomerAddress().length() < 70 ? "Y":"N");
+			
 		} else {
 			exportPDFReport.setCheckAddress("N");
 		}
+		
 		if (StringUtils.isNotBlank(invObject.getTaxId())) {
 			exportPDFReport.setCheckTaxId("Y");
 		} else {
@@ -420,12 +425,14 @@ public class EpisReportController {
 
 		if (StringUtils.isNotBlank(printCollections.get(0).getCustName())) {
 			exportPDFReport.setCustNameCheck("Y");
+			exportPDFReport.setCustNameLength(printCollections.get(0).getCustName().length() < 60 ? "Y":"N");
 		} else {
 			exportPDFReport.setCustNameCheck("N");
 		}
 
 		if (StringUtils.isNotBlank(printCollections.get(0).getCustomerAddress())) {
 			exportPDFReport.setAddressCheck("Y");
+			exportPDFReport.setAddressLength(printCollections.get(0).getCustomerAddress().length() < 60 ? "Y":"N");
 
 		} else {
 			exportPDFReport.setAddressCheck("N");
@@ -947,7 +954,7 @@ public class EpisReportController {
 //	}
 	
 	private void previewPaymentPrintOrder(HttpServletRequest request, HttpServletResponse response, List<InvPaymentOrderTaxBean> collections, final String JASPER_JRXML_FILENAME, HistoryReportBean creteria) throws Exception {
-		UserProfile profile = (UserProfile)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		UserProfile profile = (UserProfile)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		List<InvPaymentOrderTaxBean> printCollections = new ArrayList<InvPaymentOrderTaxBean>();
 		InvPaymentOrderTaxBean invObject = (InvPaymentOrderTaxBean) collections.get(0);
 		InvPaymentOrderTaxBean exportPDFReport = new InvPaymentOrderTaxBean();
@@ -984,7 +991,7 @@ public class EpisReportController {
 		exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 		exportPDFReport.setPrintDate(dateDocument);
 		exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
-		exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
+		exportPDFReport.setInvoiceNo(masterDatasDao.getTAXIDCAT().getValue());
 		exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 		exportPDFReport.setEmpSummaryName(invObject.getEmpName());
 
@@ -1155,7 +1162,7 @@ public class EpisReportController {
 					exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 					exportPDFReport.setPrintDate(dateDocument);
 					exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
-					exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
+					exportPDFReport.setInvoiceNo(masterDatasDao.getTAXIDCAT().getValue());
 					exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 					exportPDFReport.setEmpSummaryName(invObject.getEmpName());
 					vatRate = collections.get(i).getVatRate()+"";
@@ -1305,7 +1312,7 @@ public class EpisReportController {
 	}
 	
 	public void printReportTaxRS(HttpServletRequest request, HttpServletResponse response, ReportTaxRSBean responeData, String JASPER_JRXML_FILENAME, HistoryReportBean creteria) throws Exception {
-		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		InvPaymentOrderTaxBean exportPDFReport = new InvPaymentOrderTaxBean();
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		List<JasperPrint> jasperPrints = new ArrayList<JasperPrint>();
@@ -1335,7 +1342,7 @@ public class EpisReportController {
 		exportPDFReport.setDateTo(endDate + " " + creteria.getDateToHour() + ":" + creteria.getDateToMinute());
 		exportPDFReport.setPrintDate(dateDocument);
 		exportPDFReport.setBranchArea(masterDatasDao.getNTSHOPNAME().getValue());
-		exportPDFReport.setInvoiceNo(profile.getTaxIdCat());
+		exportPDFReport.setInvoiceNo(masterDatasDao.getTAXIDCAT().getValue());
 		exportPDFReport.setBranchCodeEmp(masterDatasDao.getNTBUPLACE().getValue());
 
 //		BigDecimal summaryBeforeVt = new BigDecimal(0);
