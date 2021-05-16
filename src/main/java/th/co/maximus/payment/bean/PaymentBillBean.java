@@ -17,8 +17,15 @@ public class PaymentBillBean implements Serializable{
 	private BigDecimal inputSpecialDiscount;
 	private BigDecimal summarySale;
 	private BigDecimal summaryinvoice;
+	private String inputServiceName2;
 	
 	
+	public String getInputServiceName2() {
+		return inputServiceName2;
+	}
+	public void setInputServiceName2(String inputServiceName2) {
+		this.inputServiceName2 = inputServiceName2;
+	}
 	public BigDecimal getSummaryinvoice() {
 		return summaryinvoice;
 	}

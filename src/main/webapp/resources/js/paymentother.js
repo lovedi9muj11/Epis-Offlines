@@ -471,9 +471,11 @@ function submitForm() {
 	//new logical
 	tblbills = []
 	billLists.forEach( element => {
+		alert("1 = "+element.serviceName)
 		bill = {
 			"inputServiceType" : element.serviceType,
 			"inputServiceName" : element.serviceName,
+			"inputServiceName2" : element.serviceName,
 			"inputServiceCode" : element.serviceCode,
 			"inputServiceMoreData" : element.serviceMoreData,
 			"inputServiceAmount" : FormatMoneyShowToNumber(element.serviceAmount),
@@ -485,9 +487,11 @@ function submitForm() {
 		tblbills.push(bill);
 	})
 	
+	console.log(tblbills)
 	// ตารางขาย
 	var tblSale = document.getElementById("sumtableBillingList");
 	var roeLeng = tblSale.rows.length;
+	var servicenameEdt= 0;
 	for (var v = 1; v < roeLeng; v++) {
 		slae = [];
 		var oCellss = tblSale.rows.item(v).cells;
@@ -496,18 +500,15 @@ function submitForm() {
 				if(oCellss[fv].children.length > 1){
 					slae.push(oCellss[fv].children[0].value);
 					slae.push(oCellss[fv].children[1].value);
-				}else{
-					slae.push(oCellss[fv].lastChild.value);
+					tblbills[servicenameEdt++].inputServiceName = oCellss[fv].children[0].value;
 				}
 			
-			} else {
-
-				slae.push(oCellss[fv].innerHTML);
 			}
+			
 		}
-		resultTblSale.push(slae);
 
 	}
+	console.log(tblbills)
 
 	// ตาราง สรุป ยอดเงิน
 	var tableTotalPrice = document.getElementById("sumTotalPriceTable");
