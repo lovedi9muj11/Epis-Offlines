@@ -459,9 +459,23 @@
 			<textField>
 				<reportElement x="218" y="1" width="93" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{customerName}.length() > 22]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="FreesiaUPC" size="12" isUnderline="false" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="97" height="20" uuid="7f44a04e-1c8e-42d3-abbb-30f8428d4a85">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$F{customerName}.length() <= 22]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
 					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>

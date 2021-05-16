@@ -342,17 +342,14 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 			errorCount++;
 			errorRecript.append(recNO).append(",");
 		}finally {
-			if(errorCount != 0 || successCount != 0 ) {
-				TranferLogs log = new TranferLogs();
-				log.setStartDate(new Timestamp(startDate.getTime()));
-				log.setEndDate(new Timestamp(new Date().getTime()));
-				log.setSystem(system);
-				log.setErrorTask(errorCount);
-				log.setSuccessTask(successCount);
-				log.setErrorRecript(errorRecript.toString());
-				tranferLogsRepository.save(log);
-			}
-			
+			TranferLogs log = new TranferLogs();
+			log.setStartDate(new Timestamp(startDate.getTime()));
+			log.setEndDate(new Timestamp(new Date().getTime()));
+			log.setSystem(system);
+			log.setErrorTask(errorCount);
+			log.setSuccessTask(successCount);
+			log.setErrorRecript(errorRecript.toString());
+			tranferLogsRepository.save(log);
 		}
 
 		return objMessage;

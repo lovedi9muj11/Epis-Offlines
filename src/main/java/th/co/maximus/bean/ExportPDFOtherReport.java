@@ -52,7 +52,22 @@ public class ExportPDFOtherReport {
 	
 	private String title;
 	
+	private String addressLength;
+	private String custNameLength;
 	
+	
+	public String getCustNameLength() {
+		return custNameLength;
+	}
+	public void setCustNameLength(String custNameLength) {
+		this.custNameLength = custNameLength;
+	}
+	public String getAddressLength() {
+		return addressLength;
+	}
+	public void setAddressLength(String addressLength) {
+		this.addressLength = addressLength;
+	}
 	public String getVatSum() {
 		return vatSum;
 	}

@@ -45,7 +45,19 @@ public class ReportPaymentBean {
 	private String posName;
 	private String glCode;
 	
+	private String custNameLength;
+	
 	List<ReportPaymentBean> reportPaymentBean;
+	
+	
+
+	public String getCustNameLength() {
+		return custNameLength;
+	}
+
+	public void setCustNameLength(String custNameLength) {
+		this.custNameLength = custNameLength;
+	}
 
 	public String getInvoiceNo() {
 		return invoiceNo;

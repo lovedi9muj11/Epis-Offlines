@@ -97,9 +97,10 @@
 				<text><![CDATA[ชื่อ :]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="82" y="43" width="235" height="30" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
+				<reportElement x="82" y="43" width="236" height="30" backcolor="#FFFFFF" uuid="d69a37ef-cbb8-42eb-bb21-7fe80d65b92f">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[$P{ReportSource}.getCustNameCheck() == "Y"]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{ReportSource}.getCustNameCheck() == "Y"&& $P{ReportSource}.getCustNameLength() == "N"]]></printWhenExpression>
 				</reportElement>
 				<box padding="2"/>
 				<textElement verticalAlignment="Top">
@@ -157,7 +158,7 @@
 			<textField>
 				<reportElement stretchType="RelativeToBandHeight" x="82" y="65" width="236" height="30" backcolor="#FFFFFF" uuid="87cecdb8-586c-434b-b333-c3702ca8a4ec">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[$P{ReportSource}.getAddressCheck() == "Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{ReportSource}.getAddressCheck() == "Y"  && $P{ReportSource}.getAddressLength() == "N"]]></printWhenExpression>
 				</reportElement>
 				<box padding="2"/>
 				<textElement verticalAlignment="Middle">
@@ -256,6 +257,35 @@
 					<font size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{ReportSource}.getTitle()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="82" y="64" width="236" height="18" backcolor="#FFFFFF" uuid="30d32161-362f-40e3-a33f-7e4b68d016a3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$P{ReportSource}.getAddressCheck() == "Y"  && $P{ReportSource}.getAddressLength() == "Y"]]></printWhenExpression>
+				</reportElement>
+				<box padding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportSource}.getCustomerAddress()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="43" width="236" height="18" backcolor="#FFFFFF" uuid="e68d4786-f2d8-40c0-8427-afdba194d3e1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{ReportSource}.getCustNameCheck() == "Y"&& $P{ReportSource}.getCustNameLength() == "Y"]]></printWhenExpression>
+				</reportElement>
+				<box padding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" isBold="false"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportSource}.getCustName()]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

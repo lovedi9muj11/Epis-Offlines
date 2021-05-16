@@ -43,8 +43,23 @@ public class ExportPDFReport {
 	
 	private String branAreaCheck;
 	
+	private String custNameLength;
+	private String addressLength;
 	
 	
+	
+	public String getCustNameLength() {
+		return custNameLength;
+	}
+	public void setCustNameLength(String custNameLength) {
+		this.custNameLength = custNameLength;
+	}
+	public String getAddressLength() {
+		return addressLength;
+	}
+	public void setAddressLength(String addressLength) {
+		this.addressLength = addressLength;
+	}
 	public String getBranArea() {
 		return branArea;
 	}
