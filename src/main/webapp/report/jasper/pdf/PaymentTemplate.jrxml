@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PaymentTemplate" language="groovy" pageWidth="920" pageHeight="441" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="880" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b9d09e0-4ce0-446b-9577-a779418e6fa7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PaymentTemplate" language="groovy" pageWidth="930" pageHeight="441" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="890" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3b9d09e0-4ce0-446b-9577-a779418e6fa7">
 	<property name="ireport.zoom" value="1.6105100000000014"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<parameter name="serviceTypeHead" class="java.lang.String"/>
 	<parameter name="dateFrom" class="java.lang.String"/>
 	<parameter name="dateTo" class="java.lang.String"/>
@@ -384,59 +393,84 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
+		<band height="30" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
-				<reportElement x="10" y="-2" width="22" height="20" uuid="35085949-7a1e-4981-b637-7c4d87d22fad"/>
+				<reportElement x="10" y="0" width="22" height="20" uuid="35085949-7a1e-4981-b637-7c4d87d22fad">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{manualIdStr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="444" y="0" width="108" height="19" uuid="2dc5b121-1f51-4809-8796-01c594d46d90"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="444" y="3" width="108" height="27" uuid="2dc5b121-1f51-4809-8796-01c594d46d90">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{paymentMethod}.length() > 30]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{paymentMethod}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="552" y="-1" width="55" height="20" uuid="59a2dbb7-e3bd-4449-a35e-01d7867f71e8"/>
+				<reportElement x="552" y="0" width="55" height="20" uuid="59a2dbb7-e3bd-4449-a35e-01d7867f71e8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{noRefer}.indexOf(",")<0]]></printWhenExpression>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{noRefer}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="607" y="-1" width="78" height="20" uuid="53bda14d-f394-4f38-868e-d3edea972160"/>
+				<reportElement x="607" y="0" width="78" height="20" uuid="53bda14d-f394-4f38-868e-d3edea972160">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{beforVatStr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="685" y="-1" width="78" height="20" uuid="468c0f42-6f7a-49a8-9aee-fd0d4e066127"/>
+				<reportElement x="685" y="0" width="78" height="20" uuid="468c0f42-6f7a-49a8-9aee-fd0d4e066127">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vatAmountStr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="763" y="-1" width="78" height="20" uuid="338252df-dbdf-46c8-bdd1-d00ff605f350"/>
+				<reportElement x="763" y="0" width="78" height="20" uuid="338252df-dbdf-46c8-bdd1-d00ff605f350">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{amountStr}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="311" y="-1" width="144" height="20" uuid="460277e2-f52b-424b-9d5f-3dc8b37cd669"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<reportElement x="311" y="3" width="144" height="27" uuid="460277e2-f52b-424b-9d5f-3dc8b37cd669">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{invoiceNo}.length() > 36]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="839" y="-2" width="42" height="20" uuid="d01ae830-fb05-4c14-8ed4-783643acae5a"/>
+				<reportElement x="839" y="0" width="42" height="20" uuid="d01ae830-fb05-4c14-8ed4-783643acae5a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12"/>
 				</textElement>
@@ -457,8 +491,9 @@
 				<textFieldExpression><![CDATA[$F{accountSubNo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="218" y="1" width="93" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
+				<reportElement x="218" y="3" width="93" height="27" uuid="8ebfa187-0d51-4517-9513-bd4b68bcfce6">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<printWhenExpression><![CDATA[$F{customerName}.length() > 22]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
@@ -479,6 +514,45 @@
 					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="144" height="20" uuid="1c872ce2-db9c-45ee-9a0b-f025ed8ae615">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{invoiceNo}.length() <= 36]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="108" height="20" uuid="166daf4a-49bd-4cd1-861f-be2d1f42a3b9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$F{paymentMethod}.length() <= 30]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentMethod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="552" y="3" width="55" height="27" uuid="b74cd3d6-f042-41cd-81e8-19f50b6347b0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$F{noRefer}.indexOf(",")>=0]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
+					<paragraph lineSpacing="Proportional" lineSpacingSize="2.8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noRefer}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

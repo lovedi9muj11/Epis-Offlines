@@ -471,7 +471,6 @@ function submitForm() {
 	//new logical
 	tblbills = []
 	billLists.forEach( element => {
-		alert("1 = "+element.serviceName)
 		bill = {
 			"inputServiceType" : element.serviceType,
 			"inputServiceName" : element.serviceName,
@@ -487,7 +486,6 @@ function submitForm() {
 		tblbills.push(bill);
 	})
 	
-	console.log(tblbills)
 	// ตารางขาย
 	var tblSale = document.getElementById("sumtableBillingList");
 	var roeLeng = tblSale.rows.length;
@@ -508,7 +506,6 @@ function submitForm() {
 		}
 
 	}
-	console.log(tblbills)
 
 	// ตาราง สรุป ยอดเงิน
 	var tableTotalPrice = document.getElementById("sumTotalPriceTable");
