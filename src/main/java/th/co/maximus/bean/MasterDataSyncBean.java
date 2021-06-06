@@ -27,6 +27,7 @@ public class MasterDataSyncBean {
     private String initialValue;
     private String remark;
     private String recordStatus;
+    private String taxIdCat;
     
 	public Long getId() {
 		return id;
@@ -165,6 +166,12 @@ public class MasterDataSyncBean {
 	}
 	public void setOrdered(String ordered) {
 		this.ordered = ordered;
+	}
+	public String getTaxIdCat() {
+		return taxIdCat;
+	}
+	public void setTaxIdCat(String taxIdCat) {
+		this.taxIdCat = taxIdCat;
 	}
     
 }

@@ -160,7 +160,7 @@ public class MasterDataDaoImpl implements MasterDataDao{
 				pst.setDate(15, null);
 				pst.setString(16, masterDataSyncBean.getUpdateBy());
 				pst.setDate(17, null);
-//				pst.setString(19, masterDataSyncBean.getRecordStatus());
+//				pst.setString(18, masterDataSyncBean.getTaxIdCat());
 				return pst;
 			}
 		});

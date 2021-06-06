@@ -93,7 +93,7 @@ function clearCriteria(){
 
 function printReport(){
 	if(!check){
-		swal("ยังไม่ม่ข้อมูลในการออกรายงาน")
+		swal("ยังไม่มีข้อมูลในการออกรายงาน")
 	}else{
 		$('#dateFromHidden').val(dateFromGlobal);
 		$('#dateToHidden').val(dateToGlobal);
@@ -107,7 +107,7 @@ function printReport(){
 
 function printReportPDF(){
 	if(!check){
-		swal("ยังไม่ม่ข้อมูลในการออกรายงาน")
+		swal("ยังไม่มีข้อมูลในการออกรายงาน")
 	}else{
 		$('#dateFromHidden').val(dateFromGlobal);
 		$('#dateToHidden').val(dateToGlobal);

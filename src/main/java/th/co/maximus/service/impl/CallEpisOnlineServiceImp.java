@@ -190,6 +190,7 @@ public class CallEpisOnlineServiceImp implements CallEpisOnlineService{
 				masterDataSyncBean.setUpdateBy( isNull2Null(jsonArray.getJSONObject(i).getString("updateBy")));
 //				masterDataSyncBean.setUpdateDate(new Date());
 				masterDataSyncBean.setInitialValue( isNull2Null(jsonArray.getJSONObject(i).getString("initialValue")));
+//				masterDataSyncBean.setTaxIdCat( isNull2Null(jsonArray.getJSONObject(i).getString("taxIdCat")));
 				list.add(masterDataSyncBean);
 			}
 			
