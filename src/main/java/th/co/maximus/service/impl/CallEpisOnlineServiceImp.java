@@ -4,7 +4,6 @@ import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,6 +12,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.impl.client.HttpClients;
@@ -26,12 +26,9 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.google.gson.JsonObject;
-
 import th.co.maximus.bean.MapGLBean;
 import th.co.maximus.bean.MasterDataBean;
 import th.co.maximus.bean.MasterDataSyncBean;
-import th.co.maximus.bean.MasterDatasBean;
 import th.co.maximus.bean.Principal;
 import th.co.maximus.bean.UserBean;
 import th.co.maximus.constants.Constants;
@@ -106,38 +103,42 @@ public class CallEpisOnlineServiceImp implements CallEpisOnlineService{
 					ntShopname = json.getString("ntShopname");
 					ntBuplace = json.getString("ntBuplace");
 			}
-			MasterDataBean masterDataPos = new MasterDataBean();
-			masterDataPos.setKeyCode("POS");
-			masterDataPos.setValue(pos);
-			masterDataDao.insertInitProgram(masterDataPos);
-			MasterDataBean masterDataPosName = new MasterDataBean();
-			masterDataPosName.setKeyCode("POS_NAME");
-			masterDataPosName.setValue(posName);
-			masterDataDao.insertInitProgram(masterDataPosName);
-			MasterDataBean masterDataBranchCode = new MasterDataBean();
-			masterDataBranchCode.setKeyCode("BRANCH_CODE");
-			masterDataBranchCode.setValue(branchCode);
-			masterDataDao.insertInitProgram(masterDataBranchCode);
-			MasterDataBean masterDataBranchArea = new MasterDataBean();
-			masterDataBranchArea.setKeyCode("BRANCH_AREA");
-			masterDataBranchArea.setValue(branchArea);
-			masterDataDao.insertInitProgram(masterDataBranchArea);
-			MasterDataBean masterDataCostCenter = new MasterDataBean();
-			masterDataCostCenter.setKeyCode("COST_CENTER");
-			masterDataCostCenter.setValue(costCenter);
-			masterDataDao.insertInitProgram(masterDataCostCenter);
-			MasterDataBean masterDatataxIdCat= new MasterDataBean();
-			masterDatataxIdCat.setKeyCode("TAX_ID_CAT");
-			masterDatataxIdCat.setValue(taxIdCat);
-			masterDataDao.insertInitProgram(masterDatataxIdCat);
-			MasterDataBean masterDatanNtbuplace = new MasterDataBean();
-			masterDatanNtbuplace.setKeyCode("NT_BUPLACE");
-			masterDatanNtbuplace.setValue(ntBuplace);
-			masterDataDao.insertInitProgram(masterDatanNtbuplace);
-			MasterDataBean masterDataNtshopName = new MasterDataBean();
-			masterDataNtshopName.setKeyCode("NT_SHOPNAME");
-			masterDataNtshopName.setValue(ntShopname);
-			masterDataDao.insertInitProgram(masterDataNtshopName);
+			
+			if(StringUtils.isNotBlank(pos) && StringUtils.isNotBlank(posName) && StringUtils.isNotBlank(branchArea) && StringUtils.isNotBlank(branchCode) && StringUtils.isNotBlank(taxIdCat)
+					  && StringUtils.isNotBlank(costCenter) && StringUtils.isNotBlank(ntShopname) && StringUtils.isNotBlank(ntBuplace) && StringUtils.isNotBlank(ntBuplace)) {
+				MasterDataBean masterDataPos = new MasterDataBean();
+				masterDataPos.setKeyCode("POS");
+				masterDataPos.setValue(pos);
+				masterDataDao.insertInitProgram(masterDataPos);
+				MasterDataBean masterDataPosName = new MasterDataBean();
+				masterDataPosName.setKeyCode("POS_NAME");
+				masterDataPosName.setValue(posName);
+				masterDataDao.insertInitProgram(masterDataPosName);
+				MasterDataBean masterDataBranchCode = new MasterDataBean();
+				masterDataBranchCode.setKeyCode("BRANCH_CODE");
+				masterDataBranchCode.setValue(branchCode);
+				masterDataDao.insertInitProgram(masterDataBranchCode);
+				MasterDataBean masterDataBranchArea = new MasterDataBean();
+				masterDataBranchArea.setKeyCode("BRANCH_AREA");
+				masterDataBranchArea.setValue(branchArea);
+				masterDataDao.insertInitProgram(masterDataBranchArea);
+				MasterDataBean masterDataCostCenter = new MasterDataBean();
+				masterDataCostCenter.setKeyCode("COST_CENTER");
+				masterDataCostCenter.setValue(costCenter);
+				masterDataDao.insertInitProgram(masterDataCostCenter);
+				MasterDataBean masterDatataxIdCat= new MasterDataBean();
+				masterDatataxIdCat.setKeyCode("TAX_ID_CAT");
+				masterDatataxIdCat.setValue(taxIdCat);
+				masterDataDao.insertInitProgram(masterDatataxIdCat);
+				MasterDataBean masterDatanNtbuplace = new MasterDataBean();
+				masterDatanNtbuplace.setKeyCode("NT_BUPLACE");
+				masterDatanNtbuplace.setValue(ntBuplace);
+				masterDataDao.insertInitProgram(masterDatanNtbuplace);
+				MasterDataBean masterDataNtshopName = new MasterDataBean();
+				masterDataNtshopName.setKeyCode("NT_SHOPNAME");
+				masterDataNtshopName.setValue(ntShopname);
+				masterDataDao.insertInitProgram(masterDataNtshopName);
+			}
 			
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
