@@ -1,7 +1,6 @@
 package th.co.maximus.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -137,8 +136,7 @@ public class MasterDataDaoImpl implements MasterDataDao{
 	
 	@Override
 	public void insertMasterDataSync(MasterDataSyncBean masterDataSyncBean) {
-		String sql = "INSERT INTO MASTER_DATA (KEYCODE, VALUE, GROUP_KEY, TYPE, STATUS, ORDERED, PARENT_ID, REF_ID, PROPERTY_1, PROPERTY_2, PROPERTY_3, PROPERTY_4, PROPERTY_5, CREATE_BY, CREATE_DATE, UPDATE_BY, UPDATE_DATE)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		java.util.Date now = new java.util.Date();
+		String sql = "INSERT INTO MASTER_DATA (KEYCODE, VALUE, GROUP_KEY, TYPE, STATUS, ORDERED, PARENT_ID, REF_ID, PROPERTY_1, PROPERTY_2, PROPERTY_3, PROPERTY_4, PROPERTY_5, CREATE_BY, CREATE_DATE, UPDATE_BY, UPDATE_DATE)  VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, NOW())";
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pst = con.prepareStatement(sql, new String[] { "id" });
@@ -159,7 +157,7 @@ public class MasterDataDaoImpl implements MasterDataDao{
 				pst.setString(14, masterDataSyncBean.getCreateBy());
 				pst.setDate(15, null);
 				pst.setString(16, masterDataSyncBean.getUpdateBy());
-				pst.setDate(17, null);
+//				pst.setDate(17, null);
 //				pst.setString(18, masterDataSyncBean.getTaxIdCat());
 				return pst;
 			}
