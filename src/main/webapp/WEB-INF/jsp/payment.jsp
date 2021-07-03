@@ -32,12 +32,14 @@
 	List<MasterDatasBean> masterBankEDCCode = null;
 	List<MasterDatasBean> vat = null;
 	List<MasterDatasBean> custSegment = null;
+	List<MasterDatasBean> creditTypeList = null;
 %>
 <%
 	masterBankCode = (List<MasterDatasBean>) request.getAttribute("bank");
 	masterBankEDCCode = (List<MasterDatasBean>) request.getAttribute("bankEDC");
 	vat = (List<MasterDatasBean>) request.getAttribute("vat");
 	custSegment = (List<MasterDatasBean>) request.getAttribute("custSegment");
+	creditTypeList = (List<MasterDatasBean>) request.getAttribute("creditTypeList");
 %>
 </head>
 <body>
@@ -472,8 +474,16 @@
 															<select class="form-control" id="creditType"
 																name="paymentTranPrice.creditType">
 																<option value="">กรุณาเลือก</option>
-																<option value="VISA">VISA</option>
-																<option value="MASTERCARD">MASTER-CARD</option>
+<!-- 																<option value="VISA">VISA</option> -->
+<!-- 																<option value="MASTERCARD">MASTER-CARD</option> -->
+																<%
+																	for (int i = 0; i < creditTypeList.size(); i++) {
+																%>
+																<option id="nameBank"
+																	value="<%=creditTypeList.get(i).getKeyCode()%>"><%=creditTypeList.get(i).getValue()%></option>
+																<%
+																	}
+																%>
 															</select>
 														</div>
 														<label class="col-sm-2 control-label right"
