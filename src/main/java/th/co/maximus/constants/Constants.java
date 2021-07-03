@@ -154,6 +154,8 @@ public class Constants {
 		public static final String STATUS_N = "N";
 		public static final String STATUS_W = "W";
 		public static final String STATUS_ERROR = "E";
+		public static final String STATUS_PAYMENT = "PAYMENT";
+		public static final String STATUS_CANCEL = "CANCEL";
 	}
 	
 	public static class USER {

@@ -221,7 +221,7 @@ public class HistroryPaymentController {
 		HashMap<String, Object> result = new HashMap<>();
 		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if(CollectionUtils.isNotEmpty(creteria)) {
-			List<OfflineResultModel> objMessage = clearingPaymentEpisOfflineService.callOnlinePayment(creteria,profile.getUsername());
+			List<OfflineResultModel> objMessage = clearingPaymentEpisOfflineService.callOnlinePayment(creteria,profile.getUsername(), Constants.CLEARING.STATUS_PAYMENT);
 			if(CollectionUtils.isNotEmpty(objMessage))minusOnlineService.updateStatusForMinusOnline(creteria, Constants.CLEARING.STATUS_W);
 			
 			try {
@@ -258,7 +258,7 @@ public class HistroryPaymentController {
 		String mac = GetMacAddress.getMACAddress();
 		String postUrl = "";
 		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		List<OfflineResultModel> objMessage = clearingPaymentEpisOfflineService.callOnlinePayment(list,profile.getUsername());
+		List<OfflineResultModel> objMessage = clearingPaymentEpisOfflineService.callOnlinePayment(list,profile.getUsername(), Constants.CLEARING.STATUS_CANCEL);
 		try {
 
 			for (OfflineResultModel offlineResultModel : objMessage) {

@@ -183,7 +183,7 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 	}
 
 	@Override
-	public List<OfflineResultModel> callOnlinePayment(List<PaymentMMapPaymentInvBean> creteria ,String system) {
+	public List<OfflineResultModel> callOnlinePayment(List<PaymentMMapPaymentInvBean> creteria ,String system, String status) {
 		init();
 		List<OfflineResultModel> objMessage = new ArrayList<OfflineResultModel>();
 		int errorCount = 0;
@@ -349,6 +349,7 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 			log.setErrorTask(errorCount);
 			log.setSuccessTask(successCount);
 			log.setErrorRecript(errorRecript.toString());
+			log.setStatus(status);
 			tranferLogsRepository.save(log);
 		}
 
@@ -367,7 +368,7 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 		CancelPaymentDTO cancelDTO = new CancelPaymentDTO();
 		String postUrl = "";
 		if(list.size() > 0) {
-		List<OfflineResultModel> objMessage = callOnlinePayment(list,"BATCH");
+		List<OfflineResultModel> objMessage = callOnlinePayment(list, "BATCH", Constants.CLEARING.STATUS_CANCEL);
 		if(CollectionUtils.isNotEmpty(objMessage))minusOnlineService.updateStatusForMinusOnline(list, Constants.CLEARING.STATUS_W);
 		
 		ResponseEntity<String> resultA;

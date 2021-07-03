@@ -29,7 +29,7 @@ public interface ClearingPaymentEpisOfflineService {
 
 	public void updateStatusClearing(long manualId,String status) throws Exception;
 	
-	public List<OfflineResultModel>  callOnlinePayment(List<PaymentMMapPaymentInvBean> creteria ,String system);
+	public List<OfflineResultModel>  callOnlinePayment(List<PaymentMMapPaymentInvBean> creteria ,String system, String status);
 	
 	public ReceiptOfflineModel findReciptStatus(Integer manualId,String status) throws SQLException ;
 	

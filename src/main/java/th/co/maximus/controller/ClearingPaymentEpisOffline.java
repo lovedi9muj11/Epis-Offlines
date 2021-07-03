@@ -26,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 
 import th.co.maximus.auth.model.UserProfile;
 import th.co.maximus.bean.PaymentMMapPaymentInvBean;
+import th.co.maximus.constants.Constants;
 import th.co.maximus.model.OfflineResultModel;
 import th.co.maximus.service.CancelPaymentService;
 import th.co.maximus.service.ClearingPaymentEpisOfflineService;
@@ -74,7 +75,7 @@ public class ClearingPaymentEpisOffline {
 		result = cancelPaymentService.findAllCancelPayments(creteria.getClearing());
 		UserProfile profile = (UserProfile) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (result != null) {
-			List<OfflineResultModel> objMessage =clearingPaymentEpisOfflineService.callOnlinePayment(result,profile.getUsername());
+			List<OfflineResultModel> objMessage =clearingPaymentEpisOfflineService.callOnlinePayment(result,profile.getUsername(), Constants.CLEARING.STATUS_PAYMENT);
 			for (OfflineResultModel offlineResultModel : objMessage) {
 				if (offlineResultModel.getStatus().equals("SUCCESS")) { 
 					

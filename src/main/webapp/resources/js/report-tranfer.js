@@ -135,6 +135,7 @@ function createRow(data, seq) {
 	startDate =  formatDateTime(new Date(data.startDate));
 	endDate =  formatDate(new Date(data.endDate));
 	successTask =  data.successTask;
+	status = data.status=='PAYMENT'?ORDER_PAYMENT:ORDER_CANCEL
 	if(data.errorTask > 0){
 		remake =data.errorTask +'<a name="errorTask" id="errorTask" onclick="dialogRemake('+data.id+')"><span name="icon" id="icon" class="fa fa-envelope"></a>';
 	
@@ -145,7 +146,7 @@ function createRow(data, seq) {
 	system =  data.system;
 	
     var t = $('#reportPaymentTb').DataTable();
-    var rowNode = t.row.add([manualId,startDate,endDate,successTask,remake,system]).draw(true).node();
+    var rowNode = t.row.add([manualId,startDate,endDate,successTask+" "+status,remake,system]).draw(true).node();
     $(rowNode).find('td').eq(0).addClass('center');
     $(rowNode).find('td').eq(1).addClass('left');
     $(rowNode).find('td').eq(2).addClass('left');

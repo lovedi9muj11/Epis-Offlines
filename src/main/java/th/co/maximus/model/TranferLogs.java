@@ -26,6 +26,8 @@ public class TranferLogs {
 	
 	@Column(name="ERROR_RECRIPT")
 	private  String   errorRecript;
+	@Column(name="STATUS")
+	private  String   status;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
@@ -70,6 +72,12 @@ public class TranferLogs {
 	}
 	public void setErrorRecript(String errorRecript) {
 		this.errorRecript = errorRecript;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

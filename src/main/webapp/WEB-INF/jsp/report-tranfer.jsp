@@ -10,6 +10,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script type="text/javascript">
+	var ORDER_PAYMENT = '(รายการรับชำระ)';
+	var ORDER_CANCEL = '(รายการยกเลิกรับชำระ)';
+</script>
+
 <script src="${contextPath}/resources/lib/jquery-3.3.1.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
