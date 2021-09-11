@@ -48,7 +48,6 @@ public class PayOtherController {
 	
 	@Autowired
 	MasterDataDao masterDataDao;
-	
 
 	@RequestMapping(value = { "/payOther" }, method = RequestMethod.GET)
 	public String payOther(Model model) {
