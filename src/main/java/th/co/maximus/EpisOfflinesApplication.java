@@ -10,6 +10,6 @@ public class EpisOfflinesApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(EpisOfflinesApplication.class, args);
 	}
-//	@SuppressWarnings("deprecation")
+//	test
 	
 }
