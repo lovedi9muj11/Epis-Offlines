@@ -31,6 +31,9 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import th.co.maximus.bean.MasterDataBean;
 import th.co.maximus.bean.PaymentMMapPaymentInvBean;
 import th.co.maximus.bean.TmpInvoiceBean;
@@ -306,26 +309,35 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 			 String	postUrl = url.concat("/offline/paymentManualSaveOffline"); // /offline/insertPayment
 			if(PaymentEpisOfflineDTOList.size() >0) {
 				try {
-					ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, PaymentEpisOfflineDTOList,
-							String.class);
-		
-					if (null != postResponse.getBody()) {
-						JSONArray jsonArray = new JSONArray(postResponse.getBody());
-						for (int i = 0; i < jsonArray.length(); i++) {
-							OfflineResultModel obj = new OfflineResultModel();
-							System.out.println("manualId :: " + jsonArray.getJSONObject(i).getLong("manualId"));
-							obj.setManualId(jsonArray.getJSONObject(i).getLong("manualId"));
-							obj.setMessage(jsonArray.getJSONObject(i).getString("message"));
-							obj.setStatus(jsonArray.getJSONObject(i).getString("status"));
-							obj.setRecriptNo(jsonArray.getJSONObject(i).getString("recriptNo"));
-							if (("SUCCESS").equals(obj.getStatus())) {
-								obj.setManualIdOnline(jsonArray.getJSONObject(i).getLong("manualIdOnline"));
-								successCount++;
-							}else {
-								errorCount++;
-								errorRecript.append(jsonArray.getJSONObject(i).getString("recriptNo")).append("|");
+					
+					Gson x = new Gson();
+					System.out.println("LOG : " + x.toJson(PaymentEpisOfflineDTOList));
+					
+					
+					for(PaymentEpisOfflineDTO data : PaymentEpisOfflineDTOList) {
+						List<PaymentEpisOfflineDTO> list = new ArrayList<>();
+						list.add(data);
+						ResponseEntity<String> postResponse = restTemplate.postForEntity(postUrl, list,
+								String.class);
+			
+						if (null != postResponse.getBody()) {
+							JSONArray jsonArray = new JSONArray(postResponse.getBody());
+							for (int i = 0; i < jsonArray.length(); i++) {
+								OfflineResultModel obj = new OfflineResultModel();
+								System.out.println("manualId :: " + jsonArray.getJSONObject(i).getLong("manualId"));
+								obj.setManualId(jsonArray.getJSONObject(i).getLong("manualId"));
+								obj.setMessage(jsonArray.getJSONObject(i).getString("message"));
+								obj.setStatus(jsonArray.getJSONObject(i).getString("status"));
+								obj.setRecriptNo(jsonArray.getJSONObject(i).getString("recriptNo"));
+								if (("SUCCESS").equals(obj.getStatus())) {
+									obj.setManualIdOnline(jsonArray.getJSONObject(i).getLong("manualIdOnline"));
+									successCount++;
+								}else {
+									errorCount++;
+									errorRecript.append(jsonArray.getJSONObject(i).getString("recriptNo")).append("|");
+								}
+								objMessage.add(obj);
 							}
-							objMessage.add(obj);
 						}
 					}
 				} catch (Exception e) {
@@ -409,11 +421,19 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 									.filter(a -> a.getIsIbaiss().equalsIgnoreCase("OTHER")).collect(Collectors.toList()).size();
 
 							if (dtoList.size() > 0) {
+								
+								Gson x = new Gson();
+								System.out.println("LOG dtoList : " + x.toJson(dtoList));
+								
 								postUrl = url.concat("/paymentManualServiceOnline.json?ap=OFFLINE&username="
 										+ payment.getCreateBy() + "&mac=" + mac);
 								resultA = restTemplate.postForEntity(postUrl, dtoList, String.class);
 								System.out.println(resultA);
 								TimeUnit.SECONDS.sleep(10);
+								
+								Gson xx = new Gson();
+								System.out.println("LOG cancelDTO : " + xx.toJson(cancelDTO));
+								
 								if (listOtherSize <= 0) {
 									System.out.println("CANCEL IBASS");
 									postUrl = url.concat("/cancelPaymentProduct2Offline.json?ap=OFFLINE&username="

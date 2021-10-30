@@ -646,7 +646,8 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 		sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL paument_inv ON payment_m.MANUAL_ID = paument_inv.MANUAL_ID");
 		sql.append(" WHERE payment_m.CLEARING = ? AND payment_m.RECORD_STATUS = 'C' ");
 		param.add(clearing);
-		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC");
+		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE DESC ");
+		sql.append("  LIMIT 20 ");
 		Object[] paramArr = param.toArray();
 		return jdbcTemplate.query(sql.toString(), paramArr, PaymentManual);
 	}
@@ -660,6 +661,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 		sql.append(" WHERE (payment_m.CLEARING = ? OR payment_m.CLEARING = 'W') AND payment_m.RECORD_STATUS = '"+Constants.Status.ACTIVE+"' ");
 		param.add(clearing);
 		sql.append("  GROUP by payment_m.MANUAL_ID  ORDER BY payment_m.CREATE_DATE "+Order+" ");
+		sql.append(" LIMIT 20 ");
 		Object[] paramArr = param.toArray();
 		return jdbcTemplate.query(sql.toString(), paramArr, PaymentManual);
 	}
