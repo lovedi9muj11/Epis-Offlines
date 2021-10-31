@@ -166,6 +166,7 @@ public class CallEpisOnlineServiceImp implements CallEpisOnlineService{
 			groupKeys.add(Constants.MasterData.PRODUCT);
 			groupKeys.add(Constants.MasterData.OTHER_TEMP_CUSTOMER_SEGMENT);
 			groupKeys.add(Constants.MasterData.PROFIT_COST_CENTER);
+			groupKeys.add(Constants.MasterData.CREDIT_CARD_TYPE);
 			
 			String gettUrl = url.concat("/offline/masterDataSyncByGroupKey.json"); // /offline/insertPayment //masterdatasync1
 			ResponseEntity<String> getResponse = restTemplate.postForEntity(gettUrl, groupKeys, String.class);

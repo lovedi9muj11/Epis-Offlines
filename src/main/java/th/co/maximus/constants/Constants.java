@@ -115,6 +115,7 @@ public class Constants {
 		public static final String CANCEL_REASON_INDAY = "INDAY";
 		public static final String EDC_CREDIT_CARD_BANK = "EDC_CREDIT_CARD_BANK";
 		public static final String CUSTOMER_SEGMENT = "CUSTOMER_SEGMENT";
+		public static final String CREDIT_CARD_TYPE = "CREDIT_CARD_TYPE";
 		public static final String SEGMENT = "SEGMENT";
 		public static final String PRODUCT = "PRODUCT";
 		public static final String OTHER_TEMP_CUSTOMER_SEGMENT = "OTHER_TEMP_CUSTOMER_SEGMENT";

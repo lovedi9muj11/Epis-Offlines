@@ -57,6 +57,7 @@ public class PayOtherController {
 		List<MasterDataBean> serviceDepartmentList = new ArrayList<>();
 		List<MasterDatasBean> bankEDCList = new ArrayList<>();
 		List<MasterDatasBean> custSegment = new ArrayList<MasterDatasBean>();
+		List<MasterDatasBean> creditTypeList = new ArrayList<MasterDatasBean>();
 
 		bankCodeList = masterDataService.findAllByBankCode();
 		bankNameList = masterDataService.findAllByBankName();
@@ -66,6 +67,7 @@ public class PayOtherController {
 		//custSegment = masterDataService.findByCMSegment();
 		custSegment = masterDataService.findByCMSegmentByCRM();
 		// serviceTypeList = masterDataService.findAllByServiceType();
+		creditTypeList = masterDatasDao.findListByKey(Constants.MasterData.CREDIT_CARD_TYPE);
 		
 		
 		//MasterDataBean cost = masterDataDao.findByCostCenter();
@@ -79,8 +81,7 @@ public class PayOtherController {
 		model.addAttribute("costcenter", cost.getText());
 		model.addAttribute("bankEDC", bankEDCList);
 		model.addAttribute("custSegment", custSegment);
-		
-		
+		model.addAttribute("creditTypeList", creditTypeList);
 		
 		return "payOther";
 	}

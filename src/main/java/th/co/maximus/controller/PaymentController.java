@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import th.co.maximus.bean.MasterDatasBean;
+import th.co.maximus.constants.Constants;
 import th.co.maximus.core.utils.Utils;
 import th.co.maximus.dao.MasterDatasDao;
 import th.co.maximus.payment.bean.PaymentFirstBean;
@@ -44,16 +45,19 @@ public class PaymentController {
 		List<MasterDatasBean> bankEDCList = new ArrayList<>();
 		List<MasterDatasBean> vatRate = new ArrayList<>();
 		List<MasterDatasBean> custSegment = new ArrayList<MasterDatasBean>();
+		List<MasterDatasBean> creditTypeList = new ArrayList<MasterDatasBean>();
 
 		bankCodeList = masterDatasDao.findByBankName();
 		bankEDCList = masterDatasDao.findByBankEDCName();
 		vatRate = masterDatasDao.findByVat();
 //		custSegment = masterDataService.findByCMSegment();
+		creditTypeList = masterDatasDao.findListByKey(Constants.MasterData.CREDIT_CARD_TYPE);
 
 		model.addAttribute("bank", bankCodeList);
 		model.addAttribute("bankEDC", bankEDCList);
 		model.addAttribute("vat", vatRate);
 		model.addAttribute("custSegment", custSegment);
+		model.addAttribute("creditTypeList", creditTypeList);
 
 		return "payment";
 	}

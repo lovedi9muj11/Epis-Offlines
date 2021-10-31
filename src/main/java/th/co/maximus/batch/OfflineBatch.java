@@ -33,6 +33,8 @@ import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.google.gson.Gson;
+
 import th.co.maximus.auth.config.ConfigureQuartz;
 import th.co.maximus.bean.MasterDataBean;
 import th.co.maximus.bean.MasterDatasBean;
@@ -223,20 +225,23 @@ public class OfflineBatch implements Job {
 								manualDTO.setCencelFlag("N");
 								dtoList.add(manualDTO);
 								if (dtoList.size() > 0) {
+									Gson x = new Gson();
+									System.out.println("LOG dtoList : " + x.toJson(dtoList));
 									
-									String postUrl = url.concat("/paymentManualServiceOnline.json?ap=OFFLINE&username="+ payment.getCreateBy()+"&mac="+mac);
-									ResponseEntity<String> clearing = restTemplate.postForEntity(postUrl, dtoList,String.class);
-//									for (OfflineResultModel payment : resultClear) {
-									System.out.println(clearing);
-										if ("SUCCESS".equals(offlineResultModel.getStatus())) {
-											clearingPaymentEpisOfflineService.updateStatusClearing(payment.getManualId(),
-													Constants.CLEARING.STATUS_Y);
-										} else {
-											clearingPaymentEpisOfflineService.updateStatusClearing(payment.getManualId(),
-													Constants.CLEARING.STATUS_ERROR);
-										}
-//									}
-
+									for(PaymentDTO data : dtoList) {
+										List<PaymentDTO> list = new ArrayList<>();
+										list.add(data);
+										String postUrl = url.concat("/paymentManualServiceOnline.json?ap=OFFLINE&username="+ payment.getCreateBy()+"&mac="+mac);
+										ResponseEntity<String> clearing = restTemplate.postForEntity(postUrl, list,String.class);
+										System.out.println(clearing);
+											if ("SUCCESS".equals(offlineResultModel.getStatus())) {
+												clearingPaymentEpisOfflineService.updateStatusClearing(payment.getManualId(),
+														Constants.CLEARING.STATUS_Y);
+											} else {
+												clearingPaymentEpisOfflineService.updateStatusClearing(payment.getManualId(),
+														Constants.CLEARING.STATUS_ERROR);
+											}
+									}
 								}
 							}
 						}
