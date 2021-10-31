@@ -620,19 +620,6 @@
 					<text><![CDATA[รวมอัตรา]]></text>
 				</staticText>
 			</frame>
-			<staticText>
-				<reportElement mode="Transparent" x="1" y="146" width="42" height="30" uuid="413c9542-f07a-43d5-b068-759b67c8c8f2">
-					<printWhenExpression><![CDATA[$P{ReportSource}.getLastPage() == "Y"]]></printWhenExpression>
-				</reportElement>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="FreesiaUPC" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[รวมอัตรา]]></text>
-			</staticText>
 			<textField>
 				<reportElement mode="Transparent" x="44" y="116" width="117" height="30" uuid="bf598cb2-1d88-4630-b543-c0983800554f">
 					<printWhenExpression><![CDATA[$P{ReportSource}.getLastPage() == "Y"]]></printWhenExpression>
@@ -747,6 +734,7 @@
 			</textField>
 			<textField>
 				<reportElement mode="Transparent" x="489" y="116" width="91" height="30" uuid="9bb40ed9-ab38-4737-a2d4-6cab60396a3c">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<printWhenExpression><![CDATA[$P{ReportSource}.getLastPage() == "N"]]></printWhenExpression>
 				</reportElement>
 				<textElement textAlignment="Right">

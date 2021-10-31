@@ -577,17 +577,6 @@
 					<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
 				</textField>
 			</frame>
-			<staticText>
-				<reportElement mode="Transparent" x="1" y="116" width="42" height="30" uuid="fd19d741-ef2b-492e-8cfd-60a78d955f49"/>
-				<box>
-					<topPen lineWidth="1.0"/>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="FreesiaUPC" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[รวมอัตรา]]></text>
-			</staticText>
 			<frame>
 				<reportElement mode="Transparent" x="0" y="116" width="820" height="30" uuid="aa19dddf-0c7e-4291-9132-ba739254e40d">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
@@ -738,7 +727,7 @@
 				<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatSummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement mode="Transparent" x="726" y="117" width="92" height="28" uuid="281d84bd-7a2a-4688-b983-bc2c4f2802e8">
+				<reportElement mode="Transparent" x="727" y="117" width="92" height="28" uuid="281d84bd-7a2a-4688-b983-bc2c4f2802e8">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
@@ -749,8 +738,9 @@
 				<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummary()]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement mode="Transparent" x="644" y="117" width="82" height="28" uuid="2585775c-7b7c-4cca-947b-588ebe7ce6fb">
+				<reportElement mode="Transparent" x="645" y="117" width="82" height="28" uuid="2585775c-7b7c-4cca-947b-588ebe7ce6fb">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>

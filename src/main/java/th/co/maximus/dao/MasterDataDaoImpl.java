@@ -250,7 +250,7 @@ public class MasterDataDaoImpl implements MasterDataDao{
 	public void insertInitProgram(MasterDataBean masterDataBean) {
 		StringBuilder sql = new StringBuilder();
 		List<Object> param = new LinkedList<Object>();
-		sql.append(" UPDATE MASTER_DATA set VALUE = ? WHERE KEYCODE = ? AND GROUP_KEY = 'INIT_PROJECT'");
+		sql.append(" UPDATE MASTER_DATA set VALUE = ?,UPDATE_DATE = NOW() WHERE KEYCODE = ? AND GROUP_KEY = 'INIT_PROJECT'");
 		
 		param.add(masterDataBean.getValue());
 		param.add(masterDataBean.getKeyCode());
@@ -319,6 +319,20 @@ public class MasterDataDaoImpl implements MasterDataDao{
 		sql.append(" SELECT * FROM MASTER_DATA WHERE 1=1 and GROUP_KEY = '"+Constants.MasterData.PRODUCT+"' ");
 		
 		return jdbcTemplate.query(sql.toString(), new masterData());
+	}
+
+	@Override
+	public void updateDateBygroupKey(String groupkey) {
+		StringBuilder sql = new StringBuilder();
+		List<Object> param = new LinkedList<Object>();
+		sql.append(" UPDATE MASTER_DATA set UPDATE_DATE = NOW() WHERE GROUP_KEY = ?");
+		
+	
+		param.add(groupkey);
+		Object[] paramArr = param.toArray();
+		
+		jdbcTemplate.update(sql.toString(), paramArr);
+		
 	}
 
 }

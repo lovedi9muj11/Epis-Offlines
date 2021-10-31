@@ -58,6 +58,9 @@ public interface MasterDataDao {
 	public List<MasterDataBean> findSegmentOther();
 	
 	public List<MasterDataBean> findProductOther();
+	
+	void updateDateBygroupKey(String groupkey);
+	
 
 
 }

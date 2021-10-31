@@ -138,6 +138,7 @@ public class CallEpisOnlineServiceImp implements CallEpisOnlineService{
 				masterDataNtshopName.setKeyCode("NT_SHOPNAME");
 				masterDataNtshopName.setValue(ntShopname);
 				masterDataDao.insertInitProgram(masterDataNtshopName);
+				masterDataDao.updateDateBygroupKey(Constants.MasterData.TRIGGER_GOUP);
 			}
 			
 		} catch (JSONException e) {

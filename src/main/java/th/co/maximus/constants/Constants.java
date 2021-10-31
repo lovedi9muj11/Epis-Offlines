@@ -165,7 +165,7 @@ public class Constants {
 	}
 	
 	public static class Role {
-		public static final String SUPPERVISOR = "SUPERVISOR";
+		public static final String SUPPERVISOR = "SUP";
 		public static final String ADMIN = "ADMIN";
 		public static final String USER = "USER";
 		

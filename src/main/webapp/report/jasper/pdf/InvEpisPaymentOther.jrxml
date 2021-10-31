@@ -428,15 +428,16 @@
 			<frame>
 				<reportElement mode="Transparent" x="0" y="0" width="570" height="118" uuid="7df8e3f4-7add-4b21-b0e7-6a9dc22a28dc"/>
 				<frame>
-					<reportElement isPrintRepeatedValues="false" mode="Transparent" x="272" y="0" width="296" height="80" uuid="43ac74c8-d9f7-4668-8458-edd07f4a290c">
+					<reportElement isPrintRepeatedValues="false" mode="Transparent" x="279" y="0" width="291" height="80" uuid="43ac74c8-d9f7-4668-8458-edd07f4a290c">
 						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
 						<printWhenExpression><![CDATA[$P{P_LAST_PAGE_NUMBER} ==  $V{PAGE_NUMBER} || $P{P_LAST_PAGE_NUMBER} == 1]]></printWhenExpression>
 					</reportElement>
 					<textField>
-						<reportElement x="190" y="27" width="102" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="0b5f4e26-83df-4619-a892-9fe06b9f6f63">
+						<reportElement x="190" y="27" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="0b5f4e26-83df-4619-a892-9fe06b9f6f63">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<printWhenExpression><![CDATA[$P{ReportSource}.getVatRateCheck()=="Y"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -445,7 +446,8 @@
 						<textFieldExpression><![CDATA[$P{ReportSource}.getBeforeVatStr()]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="190" y="40" width="102" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="98803ae3-0c0e-4310-ab93-5ec9c968b4f6">
+						<reportElement x="190" y="40" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="98803ae3-0c0e-4310-ab93-5ec9c968b4f6">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<printWhenExpression><![CDATA[$P{ReportSource}.getVatRateCheck()=="Y"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -454,21 +456,24 @@
 						<textFieldExpression><![CDATA[$P{ReportSource}.getVatStr()]]></textFieldExpression>
 					</textField>
 					<textField>
-						<reportElement x="190" y="67" width="102" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="30742151-3a81-4643-b3fa-f680a040ca17"/>
+						<reportElement x="190" y="66" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="30742151-3a81-4643-b3fa-f680a040ca17">
+							<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						</reportElement>
 						<textElement textAlignment="Right">
 							<font fontName="FreesiaUPC" size="12" isBold="false"/>
 						</textElement>
 						<textFieldExpression><![CDATA[$P{ReportSource}.getBalanceSummaryStr()]]></textFieldExpression>
 					</textField>
 					<staticText>
-						<reportElement style="Cat_Hl_Common" x="4" y="67" width="185" height="13" isRemoveLineWhenBlank="true" uuid="d259b88a-1b75-4886-8fc7-a46bbf83d9f1"/>
+						<reportElement style="Cat_Hl_Common" x="4" y="66" width="185" height="13" isRemoveLineWhenBlank="true" uuid="d259b88a-1b75-4886-8fc7-a46bbf83d9f1"/>
 						<textElement textAlignment="Right">
 							<font fontName="FreesiaUPC" size="12" isBold="true"/>
 						</textElement>
 						<text><![CDATA[จำนวนเงินรับชำระทั้งสิ้น (Total Charge) :]]></text>
 					</staticText>
 					<staticText>
-						<reportElement style="Cat_Hl_Common" x="4" y="1" width="187" height="13" isRemoveLineWhenBlank="true" uuid="e97cca62-24ca-4c33-a864-ff52c74e2b58">
+						<reportElement style="Cat_Hl_Common" x="4" y="1" width="185" height="13" isRemoveLineWhenBlank="true" uuid="e97cca62-24ca-4c33-a864-ff52c74e2b58">
 							<property name="com.jaspersoft.studio.unit.height" value="px"/>
 							<printWhenExpression><![CDATA[$P{ReportSource}.getDiscountSpecialCheck()=="N"]]></printWhenExpression>
 						</reportElement>
@@ -478,7 +483,7 @@
 						<text><![CDATA[จำนวนเงินก่อนหักส่วนลดพิเศษ :]]></text>
 					</staticText>
 					<textField>
-						<reportElement x="192" y="1" width="100" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="b6177117-e2de-4f95-986f-ed1611d9fd6d">
+						<reportElement x="190" y="1" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="b6177117-e2de-4f95-986f-ed1611d9fd6d">
 							<printWhenExpression><![CDATA[$P{ReportSource}.getDiscountSpecialCheck()=="N"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -487,7 +492,7 @@
 						<textFieldExpression><![CDATA[$F{amountStr}]]></textFieldExpression>
 					</textField>
 					<staticText>
-						<reportElement style="Cat_Hl_Common" x="4" y="14" width="186" height="13" isRemoveLineWhenBlank="true" uuid="149b4629-ab11-4166-9966-93624adc13ae">
+						<reportElement style="Cat_Hl_Common" x="4" y="14" width="185" height="13" isRemoveLineWhenBlank="true" uuid="149b4629-ab11-4166-9966-93624adc13ae">
 							<printWhenExpression><![CDATA[$P{ReportSource}.getDiscountSpecialCheck()=="N"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -496,8 +501,7 @@
 						<text><![CDATA[ส่วนลดพิเศษ :]]></text>
 					</staticText>
 					<textField>
-						<reportElement x="191" y="14" width="102" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="ac7d1c67-2b3b-414a-9fb9-2edf10d4a6c1">
-							<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<reportElement x="190" y="14" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="ac7d1c67-2b3b-414a-9fb9-2edf10d4a6c1">
 							<printWhenExpression><![CDATA[$P{ReportSource}.getDiscountSpecialCheck()=="N"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -524,7 +528,8 @@
 						<text><![CDATA[จำนวนเงินรวมภาษีมูลค่าเพิ่ม :]]></text>
 					</staticText>
 					<textField>
-						<reportElement mode="Transparent" x="190" y="53" width="102" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="6dae1783-621c-42d7-a28e-56a82552e4c8">
+						<reportElement mode="Transparent" x="190" y="53" width="97" height="13" isRemoveLineWhenBlank="true" backcolor="#FFFFFF" uuid="6dae1783-621c-42d7-a28e-56a82552e4c8">
+							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<printWhenExpression><![CDATA[$P{ReportSource}.getVatRateCheck()=="Y"]]></printWhenExpression>
 						</reportElement>
 						<textElement textAlignment="Right">
@@ -560,7 +565,7 @@
 				<text><![CDATA[ลงชื่อ.....................................................ผู้ส่งมอบเช็ค]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Cat_Hl_Common" x="22" y="60" width="340" height="29" uuid="c56d590e-aa16-49a2-a8df-9a518a56cd28">
+				<reportElement style="Cat_Hl_Common" x="20" y="55" width="340" height="29" uuid="c56d590e-aa16-49a2-a8df-9a518a56cd28">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None">
@@ -568,7 +573,7 @@
 					<paragraph lineSpacing="Proportional" lineSpacingSize="2.0"/>
 				</textElement>
 				<text><![CDATA[ในกรณีชำระด้วยเช็ค ใบเสร็จรับเงิน/ใบกำกับภาษี จะมีผลสมบูรณ์ต่อเมื่อเรียกเก็บเงินตามเช็คได้แล้ว
-อนึ่งผู้จ่ายเช็คขอรับรองว่า  ได้ส่งเช็ควันเดียวกับวันที่ระบุในใบกำกับภาษีฉบับนี้จริง]]></text>
+อนึ่งผู้จ่ายเช็คขอรับรองว่าได้ส่งเช็ควันเดียวกับวันที่ระบุในใบกำกับภาษีฉบับนี้จริง]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Cat_Hl_Common" mode="Transparent" x="1" y="43" width="60" height="13" isPrintWhenDetailOverflows="true" uuid="d9581d47-6c87-4836-b127-3076589abc17"/>
