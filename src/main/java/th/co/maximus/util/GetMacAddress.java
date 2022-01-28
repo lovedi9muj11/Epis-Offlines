@@ -22,7 +22,7 @@ public class GetMacAddress {
 //	                    System.out.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : "");
 	                    sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
 	                }
-	                sb.append("||");
+	                sb.append("_");
 	            }
 	        }
 	        macAddress = sb.toString();
