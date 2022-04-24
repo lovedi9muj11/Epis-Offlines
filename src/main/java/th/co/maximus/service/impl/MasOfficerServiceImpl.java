@@ -55,8 +55,8 @@ public class MasOfficerServiceImpl implements MasOfficerService{
 		
 		if(Constants.Role.RoleOnline.ADMIN.equalsIgnoreCase(name)) {
 			result = Constants.Role.ADMIN;
-		}else if(Constants.Role.RoleOnline.SUPPERVISOR.equalsIgnoreCase(name)) {
-			result = Constants.Role.SUPPERVISOR;
+		}else if(Constants.Role.RoleOnline.SUPERVISOR.equalsIgnoreCase(name)) {
+			result = Constants.Role.SUPERVISOR;
 		}else {
 			result = Constants.Role.USER;
 		}
@@ -67,8 +67,8 @@ public class MasOfficerServiceImpl implements MasOfficerService{
 	public String checkRoleId(long id , String name) {
 		String result = "";
 		
-		if(Constants.Role.RoleOnline.SUPPERVISOR_8 == (id) || Constants.Role.RoleOnline.SUPPERVISOR.equals(name.toUpperCase())) {
-			result = Constants.Role.SUPPERVISOR;
+		if(Constants.Role.RoleOnline.SUPERVISOR_8 == (id) || Constants.Role.RoleOnline.SUPERVISOR.equals(name.toUpperCase())) {
+			result = Constants.Role.SUPERVISOR;
 		}else {
 			result = Constants.Role.USER;
 		}

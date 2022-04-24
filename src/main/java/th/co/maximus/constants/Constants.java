@@ -1,5 +1,7 @@
 package th.co.maximus.constants;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class Constants {
@@ -165,23 +167,26 @@ public class Constants {
 	}
 	
 	public static class Role {
-		public static final String SUPPERVISOR = "SUP";
+		public static final String SUP = "SUP";
+		public static final String SUPERVISOR = "SUPERVISOR";
 		public static final String ADMIN = "ADMIN";
 		public static final String USER = "USER";
 		
-		public static final String SUPPERVISOR_2 = "2";
+		public static final String SUPERVISOR_2 = "2";
 		public static final String ADMIN_1 = "1";
 		public static final String USER_3 = "3";
 		
 		public static class RoleOnline {
-			public static final String SUPPERVISOR = "SUPERVISOR";
+			public static final String SUPERVISOR = "SUPERVISOR";
 			public static final String ADMIN = "ADMIN";
 			public static final String USER = "BACKOFFICE";
-			public static final long SUPPERVISOR_8 = 8;
+			public static final long SUPERVISOR_8 = 8;
 			public static final long USER_3 = 3;
 			
 			
 		}
+		
+		public static final List<String> ROLE_SUPERVISOR = Arrays.asList(Role.SUP, Role.SUPERVISOR);
 	}
 	
 	public static class CANCEL {

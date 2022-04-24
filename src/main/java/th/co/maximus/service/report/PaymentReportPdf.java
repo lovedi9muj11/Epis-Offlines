@@ -720,7 +720,7 @@ public class PaymentReportPdf {
 //			String glName = CollectionUtils.isNotEmpty(resListGL)?resListGL.get(0).getGlCode():"";
 			String glName = Constants.INIT_PROJECT_GL;
 			
-			if(Constants.Role.SUPPERVISOR_2.equals(beanRole.getRoleId()+"")) {
+			if(Constants.Role.SUPERVISOR_2.equals(beanRole.getRoleId()+"")) {
 				
 				String vatRate = "";
 				String userPayment = "";
@@ -1712,7 +1712,7 @@ public class PaymentReportPdf {
 			
 		}else {
 			
-			if(Constants.Role.SUPPERVISOR_2.equals(beanRole.getRoleId()+"")) {
+			if(Constants.Role.SUPERVISOR_2.equals(beanRole.getRoleId()+"")) {
 				
 				String vatRate = "";
 				String userPayment = "";

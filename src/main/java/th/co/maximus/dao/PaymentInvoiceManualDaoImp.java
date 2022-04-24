@@ -40,7 +40,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 		List<Object> param = new LinkedList<Object>();
 		sql.append(" SELECT * FROM RECEIPT_MANUAL payment_m ");
 		sql.append(" INNER JOIN PAYMENT_INVOICE_MANUAL paument_inv ON payment_m.MANUAL_ID = paument_inv.MANUAL_ID");
-		if(!Constants.Role.SUPPERVISOR.equals(profile.getRoles().get(0).getName())) {
+		if(!Constants.Role.SUPERVISOR.equals(profile.getRoles().get(0).getName())) {
 			sql.append(" WHERE payment_m.CREATE_BY = ?");
 			param.add(profile.getUsername());
 		}
@@ -253,7 +253,7 @@ public class PaymentInvoiceManualDaoImp implements PaymentInvoiceManualDao {
 			sql.append(" AND payment_m.INVOICE_NO IS NULL ");
 		}
 		
-		if(!Constants.Role.SUPPERVISOR.equals(profile.getRoles().get(0).getName())) {
+		if(!Constants.Role.SUPERVISOR.equals(profile.getRoles().get(0).getName())) {
 			sql.append(" AND payment_m.CREATE_BY = ?");
 			param.add(profile.getUsername());
 		}
