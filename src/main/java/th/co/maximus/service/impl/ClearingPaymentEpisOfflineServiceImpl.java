@@ -492,12 +492,17 @@ public class ClearingPaymentEpisOfflineServiceImpl implements ClearingPaymentEpi
 		rp.setIsIbaiss(payment.getServiceType());
 		rp.setCanceldate(dateFormat.format(payment.getCancleDate()));
 		rp.setCancelBy(payment.getCancleBy());
+		rp.setCancelCode(payment.getReasonCode());
+		rp.setCancelReason(payment.getReasonDesc());
+		
+		
 		rpList.add(rp);
 		dto.setReceipts(rpList);
 		dto.setFlagCancel("Y");
 		dto.setFlgNewReceipt(false);
 		dto.setUserAuthen(payment.getCreateBy());
 		dto.setCancelflagOffline("Y");
+		
 		return dto;
 	}
 
