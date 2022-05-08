@@ -1606,6 +1606,7 @@ function addDataTablecreditTranPrice() {
 	}
 	var table = document.getElementById("creditTable").rows.length;
 	var creditType = document.getElementById("creditType").value;
+	var creditTypeText = $("#creditType option:selected").text();
 	var edcType = document.getElementById("edcType");
 	var selectedText = edcType.options[edcType.selectedIndex].text;
 	var creditNo = $("#creditNo").val();
@@ -1662,7 +1663,7 @@ function addDataTablecreditTranPrice() {
 	var markup = "<tr><td>"
 			+ count
 			+ "</td><td>"
-			+ creditType
+			+ creditTypeText
 			+ "</td><td>"
 			+ creditNo
 			+ "</td><td>"
