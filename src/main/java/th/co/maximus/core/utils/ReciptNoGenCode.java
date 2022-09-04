@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 
 import th.co.maximus.auth.model.UserProfile;
+import th.co.maximus.constants.Constants;
 
 @Repository("ReciptNoGenCode")
 public class ReciptNoGenCode {
@@ -25,14 +26,14 @@ public class ReciptNoGenCode {
 		 String posNo = profile.getPos();
 		 String branArea = profile.getBranchArea();
 		StringBuilder sql = new StringBuilder();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd", new Locale("en", "US" ));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-dd", Constants.localeEN);
 		String date = sdf.format(new Date());
 		
 		
 		int result = 0;
 		
 		
-		SimpleDateFormat datea = new SimpleDateFormat("yyMMdd");
+		SimpleDateFormat datea = new SimpleDateFormat("yyMMdd", Constants.localeEN);
 		String dateS = datea.format(new Date());
 		
 		String dates=convertDateString(dateS);
