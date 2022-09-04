@@ -1070,7 +1070,7 @@
 
 							<div class="row">
 								<div class="form-group col-md-12">
-									<label class="col-md-9 control-label">กรุณาตรวจสอบข้อมูลของท่านใหม่</label>
+									<label class="col-md-9 control-label">ไม่สามารถอนุมัติทำรายการได้ กรุณาติดต่อผู้ดูแลระบบเพื่อขอข้อมูลเพิ่มเติม.</label>
 
 								</div>
 
