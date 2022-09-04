@@ -2383,11 +2383,11 @@ function autoSelect(){
 		$('#productDD').append('<option value="">' + PLS_SELECT + '</option>');
 		
 		for(var i=0; i<masterSegments.length; i++) {
-			$('#segmentDD').append('<option value="'+(masterSegments[i].value)+'">' + (masterSegments[i].text) + '</option>');
+			$('#segmentDD').append('<option value="'+(masterSegments[i].value)+'">' + (masterSegments[i].value) + " - " + (masterSegments[i].text) + '</option>');
 		}
 		
 		for(var i=0; i<masterProducts.length; i++) {
-			$('#productDD').append('<option value="'+(masterProducts[i].value)+'">' + (masterProducts[i].text) + '</option>');
+			$('#productDD').append('<option value="'+(masterProducts[i].value)+'">' + (masterProducts[i].value) + " - " + (masterProducts[i].text) + '</option>');
 		}
 		
 	}
@@ -2607,7 +2607,7 @@ function autoSelect(){
 				$('#productDD').append('<option value="">' + PLS_SELECT + '</option>');
 				
 				for(var i=0; i<resObjs.length; i++) {
-					$('#productDD').append('<option value="'+(resObjs[i].value)+'">' + (resObjs[i].text) + '</option>');
+					$('#productDD').append('<option value="'+(resObjs[i].value)+'">' + (resObjs[i].value) + " - " + (resObjs[i].text) + '</option>');
 				}
 				
 				$("#productDD").val(pdCode)
@@ -2632,7 +2632,7 @@ function autoSelect(){
 				
 				for(var i=0; i<resObjs.length; i++) {
 					smCode = resObjs[i].value
-					$('#segmentDD').append('<option value="'+(resObjs[i].value)+'">' + (resObjs[i].text) + '</option>');
+					$('#segmentDD').append('<option value="'+(resObjs[i].value)+'">' + (resObjs[i].value) + " - " + (resObjs[i].text) + '</option>');
 				}
 				$("#segmentDD").val(smCode)
 			}
