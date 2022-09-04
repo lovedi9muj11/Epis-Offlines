@@ -255,6 +255,7 @@
 											<button type="button" style="display: none;" id="shPS" class="btn btn-warning btn-sm" onclick="showProductSegment()">
 												<span class="glyphicon glyphicon-plus">เลือกเซกเม้นต์และผลิตภัณฑ์</span>
 											</button>
+											<p id="sshowProductSegment" style="color: red; display: none; margin-top: 0.5rem"> คุณยังไม่ได้ระบุ เซกเม้นต์หและผลิตภัณฑ์</p>
 										</div>
 										<label class="control-label col-sm-2">จำนวนรายการ :<span
 											style="color: red; ">*</span></label>
@@ -1101,7 +1102,7 @@
 						<div class="col-md-8">
 							<select class="groupType col-md-6" name="segmentDD" id="segmentDD" list="groupTypeDropdown" listKey="value" listValue="name" onchange="segmentSelect()">
 							</select>
-							<p id="serror" style="color: red; display: none;">กรุณาเลือก</p>
+							<p id="serror" style="color: red; display: none;">กรุณาเลือก เซกเมนต์</p>
 						</div>
 					</div>
 				</div>
@@ -1112,7 +1113,7 @@
 						<div class="col-md-8">
 							<select class="groupType col-md-6" name="productDD" id="productDD" list="groupTypeDropdown" listKey="value" listValue="name" onchange="productSelect()">
 							</select>
-							<p id="perror" style="color: red; display: none;">กรุณาเลือก</p>
+							<p id="perror" style="color: red; display: none;">กรุณาเลือก ผลิตภัณฑ์</p>
 						</div>
 					</div>
 				</div>

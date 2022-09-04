@@ -13,6 +13,7 @@ let masterProductsGBs
 let keyCode
 let serviceNames
 let serviceTypes
+let isShPS = false;
 
 $(document).ready(function() {
 	
@@ -424,6 +425,9 @@ function hideDetailPayment() {
 
 	$("#moneyTranTxt").hide();
 	$("#sCustNotxt").hide();
+
+	//
+	$("#sshowProductSegment").hide();
 }
 
 function submitForm() {
@@ -801,6 +805,14 @@ function buttonAddBillingList() {
 	if ($("#inputServiceAmount").val() <= 0.00 ) {
 		$("#sinputServiceAmount").show();
 		return $("#inputServiceAmount").focus();
+	}
+
+	//
+	if(isShPS) {
+		if(!productCode || !segmentCode) {
+			$("#sshowProductSegment").show();
+			return
+		}
 	}
 	
 	var inputServiceTypeName = ''
@@ -2318,6 +2330,7 @@ function autoSelect(){
 			if('2' == resObjs[0].glCode.substring(0, 1) && 'Y' == resObjs[0].erpInterfaceFlag) {
 				showProductSegment()
 				$("#shPS").show()
+				isShPS = true;
 				return true
 //			}else if('5' == resObjs[0].glCode.substring(0, 1) || '2' == resObjs[0].glCode.substring(0, 1) && 'N' == resObjs[0].erpInterfaceFlag) {
 			}else if('N' == resObjs[0].erpInterfaceFlag) {
@@ -2734,6 +2747,7 @@ function findServiceTypeServiceName(servicetypeList, servicenameList) {
 		let svName = $("#inputServiceName").val()
 //		let svNameText = $("#inputServiceName option:selected").text()
 		
+		isShPS = false;
 		checkMapGL(svName, svType)
 		
 		if('' === svName) {
