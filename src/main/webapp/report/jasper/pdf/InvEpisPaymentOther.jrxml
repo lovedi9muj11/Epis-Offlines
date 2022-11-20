@@ -379,9 +379,12 @@
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textField>
-					<reportElement x="74" y="1" width="180" height="15" backcolor="#FFFFFF" uuid="aa5ea0cd-bc46-480f-91ef-a5374a652b3b"/>
+					<reportElement x="74" y="1" width="180" height="20" backcolor="#FFFFFF" uuid="aa5ea0cd-bc46-480f-91ef-a5374a652b3b">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
 					<textElement textAlignment="Left">
 						<font fontName="FreesiaUPC" size="12" isBold="false"/>
+						<paragraph lineSpacing="Proportional" lineSpacingSize="2.0"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{serviceNameStr}]]></textFieldExpression>
 				</textField>
