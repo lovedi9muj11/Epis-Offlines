@@ -235,7 +235,7 @@ function generateDropDown(value){
     $el.empty();
     $el.append($("<option></option>").attr("value", '').text('ทั้งหมด'));
     for(var a = 0, s = value.length; s>a ; a++){
-    	if(value[a].roleCode == 'USER '){
+    	if(value[a].roleCode != 'ADMIN ' || value[a].roleCode != 'SUP '){
     		$el.append($("<option>").attr('value',value[a].userName).text(value[a].userName));
     	}
     }

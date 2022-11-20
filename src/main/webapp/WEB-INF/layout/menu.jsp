@@ -46,7 +46,7 @@
 								<li><a href="${contextPath}/insertBatch">Set Batch</a></li>
 							</ul></li>
 					</sec:authorize>
-					<sec:authorize access="hasAuthority('USER') or hasAuthority('SUPERVISOR')">
+					<sec:authorize access="hasAuthority('USER') or hasAuthority('SUPERVISOR') or hasAuthority('SUP')">
 						<sec:authorize access="hasAuthority('USER')">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">ชำระค่าบริการ <span class="caret"></span>
