@@ -337,12 +337,6 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{custName}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="1" y="35" width="822" height="1" uuid="ea661817-b0f0-4ec2-8874-c9fa6e1c7081"/>
-				<graphicElement>
-					<pen lineWidth="3.0" lineStyle="Double"/>
-				</graphicElement>
-			</line>
 			<textField>
 				<reportElement mode="Transparent" x="1" y="0" width="42" height="20" uuid="0cabca96-0da6-43bf-b5ba-908b14520f80"/>
 				<textElement textAlignment="Center">
@@ -590,6 +584,15 @@
 					</textElement>
 					<textFieldExpression><![CDATA[$P{ReportSource}.getSummarySummaryStr()]]></textFieldExpression>
 				</textField>
+				<line>
+					<reportElement x="0" y="33" width="823" height="1" uuid="ea661817-b0f0-4ec2-8874-c9fa6e1c7081">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Solid"/>
+					</graphicElement>
+				</line>
 			</frame>
 			<staticText>
 				<reportElement mode="Transparent" x="1" y="116" width="42" height="30" uuid="fd19d741-ef2b-492e-8cfd-60a78d955f49">
