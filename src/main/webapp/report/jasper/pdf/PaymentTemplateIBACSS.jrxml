@@ -61,6 +61,8 @@
 	<parameter name="posNoHead" class="java.lang.String"/>
 	<parameter name="posNo" class="java.lang.String"/>
 	<parameter name="glName_1" class="java.lang.String"/>
+	<parameter name="pageIndex" class="java.lang.String"/>
+	<parameter name="pageIndexAll" class="java.lang.String"/>
 	<field name="serviceType" class="java.lang.String">
 		<fieldDescription><![CDATA[serviceType]]></fieldDescription>
 	</field>
@@ -226,14 +228,14 @@
 				<textElement textAlignment="Center">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["จาก    " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["จาก    " + $P{pageIndexAll}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="741" y="20" width="50" height="18" uuid="f166d7f7-0108-4899-954f-63c82945386f"/>
 				<textElement textAlignment="Center">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["หน้า    "+ $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["หน้า    "+$P{pageIndex}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="472" y="68" width="31" height="20" uuid="16710102-4481-4ae7-bce9-52ef7ae25791"/>
@@ -377,7 +379,7 @@
 				<textFieldExpression><![CDATA[$F{paymentMethod}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="496" y="-1" width="65" height="20" uuid="59a2dbb7-e3bd-4449-a35e-01d7867f71e8"/>
+				<reportElement x="496" y="-1" width="65" height="30" uuid="59a2dbb7-e3bd-4449-a35e-01d7867f71e8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="FreesiaUPC" size="12" pdfEncoding="Identity-H"/>
 				</textElement>

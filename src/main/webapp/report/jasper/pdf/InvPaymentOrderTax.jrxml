@@ -13,6 +13,8 @@
 	<style name="Cat_Ct_Common" forecolor="#000000" fill="Solid" vTextAlign="Middle" vImageAlign="Middle" fontName="FreesiaUPC" fontSize="12"/>
 	<parameter name="ReportSource" class="th.co.maximus.bean.InvPaymentOrderTaxBean"/>
 	<parameter name="lastPage" class="java.lang.String"/>
+	<parameter name="pageIndex" class="java.lang.String"/>
+	<parameter name="pageIndexAll" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -58,14 +60,14 @@
 				<textElement textAlignment="Center">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["หน้า    "+ $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["หน้า    "+ $P{pageIndex}]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
 				<reportElement mode="Transparent" x="765" y="29" width="50" height="18" uuid="5fc998ab-8403-420a-b12b-2464152c6ecf"/>
 				<textElement textAlignment="Center">
 					<font fontName="FreesiaUPC" size="12" isBold="false"/>
 				</textElement>
-				<textFieldExpression><![CDATA["จาก    " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["จาก    " + $P{pageIndexAll}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement style="Cat_Hl_Common" x="0" y="47" width="200" height="23" uuid="d36f0a74-404b-4e49-98c5-337fa6bb9cc4"/>

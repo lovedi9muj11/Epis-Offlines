@@ -899,7 +899,7 @@ public class PaymentReportPdf {
 						
 						if(i==(resultSource.size()-1)) {
 							
-							beanSup = masterDataService.findByUsername(userPayment);
+							beanSup = masterDataService.findByUsername(userPayment.split(" ")[0]);
 							
 							parameters = new HashMap<String, Object>();
 							parameters.put("serviceTypeHead", masterDatasDao.getNTSHOPNAME().getValue());

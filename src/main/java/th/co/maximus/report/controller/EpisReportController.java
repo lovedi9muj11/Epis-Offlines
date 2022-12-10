@@ -1024,6 +1024,8 @@ public class EpisReportController {
 			vatRate = collections.get(0).getVatRate()+"";
 			vatBefore = collections.get(0).getVatRate();
 			
+			int pageIndex = 1;
+			String llPage = reportService.isPage(request, response, collections, JASPER_JRXML_FILENAME, creteria);
 			for (int i = 0; i < collections.size(); i++) {
 				
 				if(userCreBy.equals(collections.get(i).getEmpName())) {
@@ -1150,7 +1152,9 @@ public class EpisReportController {
 					JRDataSource jrDataSource = (printCollections != null && !printCollections.isEmpty())
 							? new JRBeanCollectionDataSource(printCollections)
 							: new JREmptyDataSource();
-//					JRProperties.setProperty("net.sf.jasperreports.default.pdf.font.name", "th/co/maximus/report/font/newFL.ttf");
+
+					parameters.put("pageIndex", pageIndex++);
+					parameters.put("pageIndexAll", llPage);
 					JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, jrDataSource);
 					jasperPrints.add(jasperPrint);
 					
@@ -1293,7 +1297,9 @@ public class EpisReportController {
 					JRDataSource jrDataSource = (printCollections != null && !printCollections.isEmpty())
 							? new JRBeanCollectionDataSource(printCollections)
 							: new JREmptyDataSource();
-//					JRProperties.setProperty("net.sf.jasperreports.default.pdf.font.name", "th/co/maximus/report/font/newFL.ttf");
+
+					parameters.put("pageIndex", pageIndex++);
+					parameters.put("pageIndexAll", llPage);
 					JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, jrDataSource);
 					jasperPrints.add(jasperPrint);
 					
